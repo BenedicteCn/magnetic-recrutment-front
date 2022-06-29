@@ -1,40 +1,40 @@
-import axios from 'axios'
-import { createContext, useCallback, useEffect, useState } from 'react'
-import { API_URL, TOKEN_STORAGE_KEY } from '../utils/constants'
+import axios from 'axios';
+import { createContext, useCallback, useEffect, useState } from 'react';
+import { API_URL, TOKEN_STORAGE_KEY } from '../utils/constants';
 
 // make a new React context
-const AuthContext = createContext()
+const AuthContext = createContext();
 
 const AuthContextWrapper = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
-  const [user, setUser] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   const storeToken = (token) => {
-    localStorage.setItem(TOKEN_STORAGE_KEY, token)
-    authenticateUser()
-  }
+    localStorage.setItem(TOKEN_STORAGE_KEY, token);
+    authenticateUser();
+  };
 
   const removeToken = () => {
-    localStorage.removeItem(TOKEN_STORAGE_KEY)
-    authenticateUser()
-  }
+    localStorage.removeItem(TOKEN_STORAGE_KEY);
+    authenticateUser();
+  };
 
   const getToken = useCallback(() => {
-    return localStorage.getItem(TOKEN_STORAGE_KEY)
-  }, [])
+    return localStorage.getItem(TOKEN_STORAGE_KEY);
+  }, []);
 
   const authenticateUser = useCallback(() => {
-    const token = getToken()
+    const token = getToken();
 
     if (!token) {
-      setIsLoading(false)
-      setUser(null)
-      setIsLoggedIn(false)
-      return
+      setIsLoading(false);
+      setUser(null);
+      setIsLoggedIn(false);
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     axios({
       method: 'get',
@@ -45,18 +45,18 @@ const AuthContextWrapper = ({ children }) => {
       },
     })
       .then((response) => {
-        setUser(response.data)
-        setIsLoggedIn(true)
-        setIsLoading(false)
+        setUser(response.data);
+        setIsLoggedIn(true);
+        setIsLoading(false);
       })
       .catch(() => {
-        setUser(null)
-        setIsLoggedIn(false)
-        setIsLoading(false)
-      })
-  }, [getToken])
+        setUser(null);
+        setIsLoggedIn(false);
+        setIsLoading(false);
+      });
+  }, [getToken]);
 
-  useEffect(authenticateUser, [authenticateUser])
+  useEffect(authenticateUser, [authenticateUser]);
 
   return (
     <AuthContext.Provider
@@ -72,7 +72,7 @@ const AuthContextWrapper = ({ children }) => {
     >
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
 
-export { AuthContext, AuthContextWrapper }
+export { AuthContext, AuthContextWrapper };
