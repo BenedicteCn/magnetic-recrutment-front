@@ -1,8 +1,6 @@
 import React from 'react'
-import Select  from 'react-select';
 import { MultiSelect } from "react-multi-select-component";
 import { useState } from 'react'
-
 
 const optionsRemote = [
   { value: 'Full', label: 'Full' },
@@ -11,20 +9,42 @@ const optionsRemote = [
 ];
 
 const optionsSalary = [
-  { value: '<30 000', label: '< 30 000 €' },
-  { value: '[30 000 - 40 000]', label: '30 000 - 40 000 €' },
-  { value: '[40 000 - 55 000]', label: '40 000 - 55 000 €' },
-  { value: '[55 000 - 70 000]', label: '55 000 - 70 000 €' },
-  { value: '[70 000 - 85 000]', label: '70 000 - 85 000 €' },
-  { value: '> 85 000', label: '> 85 000 €' },
+  { label: '< 30 000 €', value: '<30 000' },
+  { label: '30 000 - 40 000 €', value: '[30 000 - 40 000]' },
+  { label: '40 000 - 55 000 €', value: '[40 000 - 55 000]' },
+  { label: '55 000 - 70 000 €', value: '[55 000 - 70 000]' },
+  { label: '70 000 - 85 000 €', value: '[70 000 - 85 000]' },
+  { label: '> 85 000 €', value: '> 85 000' },
 ];
 
+const optionsContract = [
+  { label: 'Internship', value: 'Internship' },
+  { label: 'Freelance', value: 'Freelance' },
+  { label: 'Full-time', value: 'Full-time' },
+  { label: 'Part-time', value: 'Part-time' },
+];
+
+const optionsPosition = [
+  { label: 'Full-stack Developer', value: 'Full-stack Developer' },
+  { label: 'Front-end Developer', value: 'Front-end Developer' },
+  { label: 'Back-end Developer', value: 'Back-end Developer' },
+  { label: 'Software Engineer', value: 'Software Engineer' },
+];
+
+const optionsExperience = [
+  { label: '< 2 years', value: '< 2 years' },
+  { label: '2-5 years', value: '2-5 years' },
+  { label: '5-10 years', value: '5-10 years' },
+  { label: '> 10 years', value: '> 10 years' },
+];
 
 const CandidateProfilePage = () => {
 
-  const [selectedOptionRemote, setSelectedOptionRemote] = useState(null);
-  const [selected, setSelected] = useState([]);
-
+  const [selectedRemote, setSelectedRemote] = useState([]);
+  const [selectedSalary, setSelectedSalary] = useState([]);
+  const [selectedContract, setSelectedContract] = useState([]);
+  const [selectedPosition, setSelectedPosition] = useState([]);
+  const [selectedExperience, setSelectedExperience] = useState([]);
 
   return (
     <div>
@@ -39,32 +59,48 @@ const CandidateProfilePage = () => {
           <label> Upload your CV (can be a PDF or a PNG only)
             <input type="file" name="document-cv" class="form-control-file" />
           </label>
-        </div>
-        <h3>Remote:</h3>
+
+        <h3>Remote option desired:</h3>
         <MultiSelect
-        defaultValue={selectedOptionRemote}
-        onChange={setSelectedOptionRemote}
         options={optionsRemote}
+        value={selectedRemote}
+        onChange={setSelectedRemote}
+        labelledBy="Select"
         />
 
-        <h3>Salary:</h3>
-        <pre>{JSON.stringify(selectedOptionSalary)}</pre>
-        <MultiSelect
-        defaultValue={selectedOptionSalary}
-        onChange={setSelectedOptionSalary}
-        options={optionsSalary}
-        />
-
-      <h3>Select Fruits</h3>
-      <pre>{JSON.stringify(selected)}</pre>
+      <h3>Expected salary:</h3>
       <MultiSelect
-        options={options}
-        value={selected}
-        onChange={setSelected}
+        options={optionsSalary}
+        value={selectedSalary}
+        onChange={setSelectedSalary}
         labelledBy="Select"
       />
 
-        <button type="submit" class="btn btn-primary">Create</button>
+      <h3>Contract type:</h3>
+      <MultiSelect
+        options={optionsContract}
+        value={selectedContract}
+        onChange={setSelectedContract}
+        labelledBy="Select"
+      />
+
+      <h3>Position searched:</h3>
+      <MultiSelect
+        options={optionsPosition}
+        value={selectedPosition}
+        onChange={setSelectedPosition}
+        labelledBy="Select"
+      />
+
+      <h3>Professional experience:</h3>
+      <MultiSelect
+        options={optionsExperience}
+        value={selectedExperience}
+        onChange={setSelectedExperience}
+        labelledBy="Select"
+      />
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
       </form>
     </div>
   </div>
