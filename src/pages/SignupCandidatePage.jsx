@@ -5,6 +5,10 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5005';
 
 function SignupCandidatePage(props) {
+
+  // const github = () => {
+  //   window.open("http://localhost:3000/candidate/auth/github", "_self");
+  // };
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState("");
@@ -58,11 +62,22 @@ function SignupCandidatePage(props) {
 
         <button type="submit">Sign Up</button>
       </form>
-
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+      <a href="http://localhost:5005/candidate/auth/github">
+              Sign in with Github
+
+      </a>
+
+      {/* <div className="github" onClick={github}> */}
+       {/* <img src={Github} alt="" className="icon" /> */}
+      {/* </div> */}
+
+      <hr/>
 
       <p>Already have account?</p>
       <Link to={'/candidate/login'}> Login</Link>
+
     </div>
   );
 }

@@ -27,13 +27,6 @@ const AuthContextWrapper = ({ children }) => {
   const authenticateUser = useCallback(() => {
     const token = getToken();
 
-    if (!token) {
-      setIsLoading(false);
-      setUser(null);
-      setIsLoggedIn(false);
-      return;
-    }
-
     setIsLoading(true);
 
     axios({
@@ -41,8 +34,9 @@ const AuthContextWrapper = ({ children }) => {
       baseURL: API_URL,
       url: '/hr/verify',
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: token && `Bearer ${token}`,
       },
+      withCredentials: true
     })
       .then((response) => {
         setUser(response.data);

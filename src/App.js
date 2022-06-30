@@ -32,6 +32,7 @@ function App() {
           path="/candidate/signup"
           element={<SignupCandidatePage />}
         />
+
         <Route exact path="/hr/signup" element={<SignupHRPage />} />
         <Route exact path="/hr/search" element={<SearchPage />} />
       </Routes>
