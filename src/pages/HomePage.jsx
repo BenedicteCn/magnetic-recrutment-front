@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function HomePage() {
   return (
     <div>
-      <h1>Magnrtic Recretement</h1>
+      <h1>Magnetic Recruitment</h1>
       <p>
         We match candidates with tech profile to the inspiring companies. Tell
         us more about your goals and we'll match you with the right jobs.
       </p>
-      <button>I AM A CANDIDATE</button>
-      <button>I AM A RECRUTER</button>
+      <Link to={'/candidate/login'}><button>I AM A CANDIDATE</button></Link>
+      <Link to={'/hr/login'}><button>I AM A RECRUITER</button></Link>
       <div>
         <h4>Want to get a job?</h4>
         <p>

@@ -7,29 +7,29 @@ const API_URL = 'http://localhost:5005';
 function SignupCandidatePage(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
+  const handleName = (e) => setUsername(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     axios({
-      url: '/signup',
+      url: '/candidate/signup',
       baseURL: API_URL,
       method: 'post',
       data: {
         email,
         password,
-        name,
+        username,
       },
     })
       .then((response) => {
-        navigate('/login');
+        navigate('/candidate/login');
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -53,8 +53,8 @@ function SignupCandidatePage(props) {
           onChange={handlePassword}
         />
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <label>Username:</label>
+        <input type="text" name="username" value={username} onChange={handleName} />
 
         <button type="submit">Sign Up</button>
       </form>
@@ -62,7 +62,7 @@ function SignupCandidatePage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
-      <Link to={'/login'}> Login</Link>
+      <Link to={'/candidate/login'}> Login</Link>
     </div>
   );
 }

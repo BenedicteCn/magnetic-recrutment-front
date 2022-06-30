@@ -12,9 +12,11 @@ const { isLoggedIn, user, removeToken } = useContext(AuthContext);   // <== ADD
         <button>Home</button>
       </Link>
 
+      {console.log(user)}
+
       {/*    UPDATE     */}
       {/*    add the role of the user     */}
-      {isLoggedIn && user.role === 'HR' (
+      {isLoggedIn && user.role === 'HR' && (
         <>
           <Link to="/">
             <button>Search candidates</button>
@@ -28,7 +30,7 @@ const { isLoggedIn, user, removeToken } = useContext(AuthContext);   // <== ADD
         </>
       )}
 
-      {isLoggedIn && user.role === 'Candidate' (
+      {isLoggedIn && user.role === 'Candidate' && (
 
         <>
           <Link to="/">
