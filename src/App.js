@@ -31,6 +31,7 @@ function App() {
           path="/candidate/signup"
           element={<SignupCandidatePage />}
         />
+
         <Route exact path="/hr/signup" element={<SignupHRPage />} />
       </Routes>
       <Footer />
