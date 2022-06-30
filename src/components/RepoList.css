@@ -1,0 +1,10 @@
+.list-git-repo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.list-git-repo {
+  list-style: none;
+}
