@@ -41,7 +41,10 @@ function SearchUser() {
         onChange={handleChange}
       />
       <button onClick={handleClick}>Search</button>
-      <p>{JSON.stringify(userInfo)}</p>
+      {/* <p>{JSON.stringify(userInfo)}</p> */}
+      <p>{userInfo.name}</p>
+      <img serc="{userInfo.name}" />
+      <p>{userInfo.bio}</p>
       <ReposList pinnedRepos={pinnedRepos} />
     </div>
   );

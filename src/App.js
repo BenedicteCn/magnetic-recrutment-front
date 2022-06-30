@@ -1,16 +1,17 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
 //COMPONENTS:
-import Navbar from "./components/Navbar";
+import Navbar from './components/Navbar';
 //PAGES:
-import HomePage from "./pages/HomePage";
-import CandidateProfilePage from "./pages/CandidateProfilePage";
-import SignupCandidatePage from "./pages/SignupCandidatePage";
-import LoginCandidatePage from "./pages/LoginCandidatePage";
-import LoginHRPage from "./pages/LoginHRPage";
-import SignupHRPage from "./pages/SignupHRPage";
-import SearchUser from "./components/SearchUser";
-import Footer from "./components/Footer";
+import HomePage from './pages/HomePage';
+import CandidateProfilePage from './pages/CandidateProfilePage';
+import SignupCandidatePage from './pages/SignupCandidatePage';
+import LoginCandidatePage from './pages/LoginCandidatePage';
+import LoginHRPage from './pages/LoginHRPage';
+import SignupHRPage from './pages/SignupHRPage';
+import SearchUser from './components/SearchUser';
+import Footer from './components/Footer';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           element={<SignupCandidatePage />}
         />
         <Route exact path="/hr/signup" element={<SignupHRPage />} />
+        <Route exact path="/hr/search" element={<SearchPage />} />
       </Routes>
       <Footer />
     </div>
