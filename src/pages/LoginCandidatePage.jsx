@@ -20,7 +20,7 @@ function LoginCandidatePage(props) {
     e.preventDefault();
 
     axios({
-      url: '/login',
+      url: '/candidate/login',
       baseURL: API_URL,
       method: 'post',
       data: {
@@ -29,6 +29,7 @@ function LoginCandidatePage(props) {
       },
     }).then((response) => {
       const { authToken } = response.data;
+      console.log(authToken)
       // let the AuthContext have the authToken
       storeToken(authToken);
       authenticateUser();
@@ -58,7 +59,7 @@ function LoginCandidatePage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={'/signup'}> Sign Up</Link>
+      <Link to={'/candidate/signup'}> Sign Up</Link>
     </div>
   );
 }

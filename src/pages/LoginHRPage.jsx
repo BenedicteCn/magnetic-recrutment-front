@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 import { API_URL } from '../utils/constants'
 
-function LoginPage(props) {
+function LoginHRPage(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState(undefined)
@@ -20,7 +20,7 @@ function LoginPage(props) {
     e.preventDefault()
 
     axios({
-      url: '/auth/login',
+      url: '/hr/login',
       baseURL: API_URL,
       method: 'post',
       data: {
@@ -58,9 +58,9 @@ function LoginPage(props) {
       {errorMessage && <p className='error-message'>{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={'/signup'}> Sign Up</Link>
+      <Link to={'/hr/signup'}> Sign Up</Link>
     </div>
   )
 }
 
-export default LoginPage
+export default LoginHRPage

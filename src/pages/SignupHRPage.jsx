@@ -8,29 +8,29 @@ const API_URL = "http://localhost:5005";
 function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
+  const handleName = (e) => setUsername(e.target.value);
 
 
   const handleSignupSubmit = (e) => {
     e.preventDefault()
     axios({
-      url:'/auth/signup',
+      url:'/hr/signup',
       baseURL: API_URL,
       method: 'post',
       data: {
         email,
         password,
-        name
+        username
       }
     }).then((response) => {
-      navigate('/login');
+      navigate('/hr/login');
     }).catch((error) => {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);
@@ -59,11 +59,11 @@ function SignupPage(props) {
           onChange={handlePassword}
         />
 
-        <label>Name:</label>
+        <label>Username:</label>
         <input
           type="text"
           name="name"
-          value={name}
+          value={username}
           onChange={handleName}
         />
 
@@ -73,7 +73,7 @@ function SignupPage(props) {
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <Link to={"/hr/login"}> Login</Link>
     </div>
   )
 }
