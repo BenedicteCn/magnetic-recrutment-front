@@ -53,7 +53,7 @@ const CandidateProfilePage = () => {
   <p>Please tell us more about you and the job you are looking for!</p>
   <div class="row">
   <div class="col-md-6">
-    <form action="/movies/create" method="post" enctype="multipart/form-data">
+    <form action="/profile/create" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
           <label> Upload your CV (can be a PDF or a PNG only)
