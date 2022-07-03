@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css'
+import CandidateImage from '../assets/candidate.png'
 
 const API_URL = 'http://localhost:5005';
 
@@ -46,6 +47,9 @@ function SignupCandidatePage(props) {
     <div className="SignupPage">
       <h2>Sign Up</h2>
       <h3>For candidate</h3>
+
+      <img className="loginimage" src={CandidateImage} alt="" width="250px"/>
+
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>

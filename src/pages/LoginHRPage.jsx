@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 import { API_URL } from '../utils/constants'
 import './Auth.css'
+import LoginImage from '../assets/login.png'
+
 
 function LoginHRPage(props) {
   const [email, setEmail] = useState('')
@@ -42,6 +44,8 @@ function LoginHRPage(props) {
     <div className='LoginPage'>
       <h2>Login</h2>
 
+      <img className="loginimage" src={LoginImage} alt="" width="250px"/>
+
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type='email' name='email' value={email} onChange={handleEmail} />
@@ -54,7 +58,7 @@ function LoginHRPage(props) {
           onChange={handlePassword}
         />
 
-        <button className="signup" type='submit'>Login</button>
+      <button className="signup" type='submit'>Login</button>
       </form>
       {errorMessage && <p className='error-message'>{errorMessage}</p>}
 

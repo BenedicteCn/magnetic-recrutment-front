@@ -100,7 +100,7 @@ const CandidateProfilePage = () => {
       <form action="/profile/create" method="post" enctype="multipart/form-data">
         <div className="form-group">
           <label> Upload your CV (can be a PDF or a PNG only)
-            <input type="file" name="cv-url" />
+            <input type="file" name="cv" />
           </label>
         </div>
         <button className="submit" type="submit" >Upload CV</button>
@@ -108,6 +108,7 @@ const CandidateProfilePage = () => {
 
 
       <form onSubmit={handleSubmit}>
+
         <label>Remote option desired:</label>
         <MultiSelect
         options={optionsRemote}
