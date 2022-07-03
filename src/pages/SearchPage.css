@@ -1,7 +1,1 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Manrope:wght@200&family=Open+Sans:wght@300;400&display=swap');
-
-.profile-container {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 2rem;
-}
