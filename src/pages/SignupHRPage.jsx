@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import './Auth.css'
 
 const API_URL = "http://localhost:5005";
 
@@ -40,7 +41,7 @@ function SignupPage(props) {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
@@ -67,13 +68,13 @@ function SignupPage(props) {
           onChange={handleName}
         />
 
-        <button type="submit">Sign Up</button>
+        <button className="signup"  type="submit">Sign Up</button>
       </form>
 
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
-      <p>Already have account?</p>
-      <Link to={"/hr/login"}> Login</Link>
+      <p className ="already"> Already have account?
+      <Link to={"/hr/login"}> Login</Link></p>
     </div>
   )
 }

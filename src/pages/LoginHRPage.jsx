@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../context/auth.context'
 import { API_URL } from '../utils/constants'
+import './Auth.css'
 
 function LoginHRPage(props) {
   const [email, setEmail] = useState('')
@@ -39,7 +40,7 @@ function LoginHRPage(props) {
 
   return (
     <div className='LoginPage'>
-      <h1>Login</h1>
+      <h2>Login</h2>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -53,12 +54,12 @@ function LoginHRPage(props) {
           onChange={handlePassword}
         />
 
-        <button type='submit'>Login</button>
+        <button className="signup" type='submit'>Login</button>
       </form>
       {errorMessage && <p className='error-message'>{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={'/hr/signup'}> Sign Up</Link>
+      <p className ="already">Don't have an account yet?
+      <Link to={'/hr/signup'}> Sign Up</Link></p>
     </div>
   )
 }

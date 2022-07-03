@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import { API_URL } from '../utils/constants';
+import './Auth.css'
 
 function LoginCandidatePage(props) {
   const [email, setEmail] = useState('');
@@ -40,7 +41,7 @@ function LoginCandidatePage(props) {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h2>Login</h2>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -54,13 +55,17 @@ function LoginCandidatePage(props) {
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <button className="signup" type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
+      <a className="github" href="http://localhost:5005/candidate/auth/github">
+        Log in with Github
+      </a>
 
-      <Link to={'/candidate/signup'}> Sign Up</Link>
+      <p className ="already">Don't have an account yet?
+
+      <Link to={'/candidate/signup'}> Sign Up</Link></p>
     </div>
   );
 }
