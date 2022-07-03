@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './HomePage.css'
 import ImageOne from '../assets/header.png'
 import ImageTwo from '../assets/01.png';
-import ImageThree from '../assets/02.png'
 
 
 function HomePage() {
@@ -16,8 +15,8 @@ function HomePage() {
           Finding the perfect job, or the right candidate today with Magnetic Recruitment.
       </div>
       <div className="buttons-section-one">
-      <Link to={'/candidate/login'}><button id="candidatebutton">I am looking for a job</button></Link>
-      <Link to={'/hr/login'}><button id="hrbutton">I want to recruit</button></Link>
+      <Link to={'/candidate/login'}><button id="candidatebuttonwhite">I am looking for a job</button></Link>
+      <Link to={'/hr/login'}><button id="hrbuttonwhite">I want to recruit</button></Link>
       </div>
 
       </div>

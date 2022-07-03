@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import { API_URL } from '../utils/constants';
 import './Auth.css'
+import LoginImage from '../assets/login.png'
+
 
 function LoginCandidatePage(props) {
   const [email, setEmail] = useState('');
@@ -42,6 +44,8 @@ function LoginCandidatePage(props) {
   return (
     <div className="LoginPage">
       <h2>Login</h2>
+
+      <img className="loginimage" src={LoginImage} alt="" width="250px"/>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
