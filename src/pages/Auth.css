@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Manrope:wght@200&family=Open+Sans:wght@300;400&display=swap');
+
+h2 {
+  text-align: center;
+  font: normal normal 600 50px/78px Manrope;
+  letter-spacing: 0px;
+  opacity: 1;
+  margin: 0;
+  padding-top: 0.7em;
+}
+
+h3 {
+  opacity: 1;
+  font-size: 22px;
+  margin: 0;
+
+}
+
+label {
+  text-align: left;
+  font: normal normal 600 16px/22px Manrope;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+  padding: 0.5em;
+}
+
+input {
+
+  width: 500px;
+  height: 35px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #E8E8E8;
+  border-radius: 11px;
+  opacity: 1;
+}
+
+.already {
+
+  text-align: center;
+  font: normal normal medium 16px/22px Manrope;
+  letter-spacing: 0px;
+  color: #222222;
+  padding-top: 1em
+}
+
+.signup {
+  background: #222222 0% 0% no-repeat padding-box;
+  border-radius: 11px;
+  opacity: 1;
+  text-align: center;
+  font: normal normal 600 16px/22px Manrope;
+  color: #FFFFFF;
+  opacity: 1;
+  width: 100px;
+  height: 35px;
+  border: none;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+a.github {
+  padding: 0.45em;
+
+}
+
+.github {
+  width: 100px;
+  height: 35px;
+  border: 1px solid #222222;
+  border-radius: 11px;
+  opacity: 1;
+  text-align: left;
+  font: normal normal 600 16px/22px Manrope;
+  color: #222222;
+  opacity: 1;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+form {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+
+}

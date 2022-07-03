@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Auth.css'
 
 const API_URL = 'http://localhost:5005';
 
@@ -43,7 +44,8 @@ function SignupCandidatePage(props) {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
+      <h3>For candidate</h3>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
@@ -60,23 +62,16 @@ function SignupCandidatePage(props) {
         <label>Username:</label>
         <input type="text" name="username" value={username} onChange={handleName} />
 
-        <button type="submit">Sign Up</button>
+        <button className="signup" type="submit">Sign Up</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <a href="http://localhost:5005/candidate/auth/github">
-              Sign in with Github
-
+      <a className="github" href="http://localhost:5005/candidate/auth/github">
+        Sign up with Github
       </a>
 
-      {/* <div className="github" onClick={github}> */}
-       {/* <img src={Github} alt="" className="icon" /> */}
-      {/* </div> */}
-
-      <hr/>
-
-      <p>Already have account?</p>
-      <Link to={'/candidate/login'}> Login</Link>
+      <p className ="already">Already have account?
+      <Link to={'/candidate/login'}> Login</Link></p>
 
     </div>
   );

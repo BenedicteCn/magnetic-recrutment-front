@@ -1,6 +1,10 @@
 import React from 'react'
 import { MultiSelect } from "react-multi-select-component";
 import { useState } from 'react'
+import axios from "axios";
+import { Navigate } from 'react-router-dom';
+import './CandidateProfile.css'
+
 
 const optionsRemote = [
   { value: 'Full', label: 'Full' },
@@ -40,67 +44,110 @@ const optionsExperience = [
 
 const CandidateProfilePage = () => {
 
-  const [selectedRemote, setSelectedRemote] = useState([]);
-  const [selectedSalary, setSelectedSalary] = useState([]);
-  const [selectedContract, setSelectedContract] = useState([]);
-  const [selectedPosition, setSelectedPosition] = useState([]);
-  const [selectedExperience, setSelectedExperience] = useState([]);
+  const [remote, setSelectedRemote] = useState([]);
+  const [salary, setSelectedSalary] = useState([]);
+  const [contract, setSelectedContract] = useState([]);
+  const [position, setSelectedPosition] = useState([]);
+  const [experience, setSelectedExperience] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const remoteCopy = remote.map(x => x.value)
+    const salaryCopy = salary.map(x => x.value)
+    const contractCopy = contract.map(x => x.value)
+    const positionCopy = position.map(x => x.value)
+    const experienceCopy = experience.map(x => x.value)
+    //const requestBody = { remoteCopy, salaryCopy, contractCopy, positionCopy, experienceCopy };
+
+    //console.log("array", requestBody)
+    axios({
+      method: 'PATCH',
+      url: "http://localhost:5005/profile/create",
+      data:{
+        remote: remoteCopy,
+        salary: salaryCopy,
+        contract: contractCopy,
+        position: positionCopy,
+        experience: experienceCopy
+      },
+      withCredentials:true
+      })
+      // .post(`${API_URL}/profile/create`, requestBody)
+      .then((response) => {
+        console.log(response)
+      })
+      // )
+    //     // Reset the state
+    //     setSelectedRemote("");
+    //     setSelectedSalary("");
+    //     setSelectedContract("");
+    //     setSelectedPosition("");
+    //     setSelectedExperience("");
+    //   })
+      // .catch((error) => console.log(error));
+  };
+
 
   return (
     <div>
 
   <h2>Edit your profile</h2>
   <p>Please tell us more about you and the job you are looking for!</p>
-  <div class="row">
-  <div class="col-md-6">
-    <form action="/profile/create" method="post" enctype="multipart/form-data">
+  <div className="row">
+  <div className="col-md-6">
 
-        <div class="form-group">
+
+      <form action="/profile/create" method="post" enctype="multipart/form-data">
+        <div className="form-group">
           <label> Upload your CV (can be a PDF or a PNG only)
-            <input type="file" name="document-cv" class="form-control-file" />
+            <input type="file" name="cv-url" />
           </label>
+        </div>
+        <button className="submit" type="submit" >Upload CV</button>
+      </form>
 
-        <h3>Remote option desired:</h3>
+
+      <form onSubmit={handleSubmit}>
+        <label>Remote option desired:</label>
         <MultiSelect
         options={optionsRemote}
-        value={selectedRemote}
-        onChange={setSelectedRemote}
+        value={remote}
+        onChange={(item) => setSelectedRemote(item)}
         labelledBy="Select"
         />
 
-      <h3>Expected salary:</h3>
+      <label>Expected salary:</label>
       <MultiSelect
         options={optionsSalary}
-        value={selectedSalary}
-        onChange={setSelectedSalary}
+        value={salary}
+        onChange={(item) => setSelectedSalary(item)}
         labelledBy="Select"
       />
 
-      <h3>Contract type:</h3>
+      <label>Contract type:</label>
       <MultiSelect
         options={optionsContract}
-        value={selectedContract}
-        onChange={setSelectedContract}
+        value={contract}
+        onChange={(item) => setSelectedContract(item)}
         labelledBy="Select"
       />
 
-      <h3>Position searched:</h3>
+      <label>Position searched:</label>
       <MultiSelect
         options={optionsPosition}
-        value={selectedPosition}
-        onChange={setSelectedPosition}
+        value={position}
+        onChange={(item) => setSelectedPosition(item)}
         labelledBy="Select"
       />
 
-      <h3>Professional experience:</h3>
+      <label>Professional experience:</label>
       <MultiSelect
         options={optionsExperience}
-        value={selectedExperience}
-        onChange={setSelectedExperience}
+        value={experience}
+        onChange={(item) => setSelectedExperience(item)}
         labelledBy="Select"
       />
-        </div>
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="submit">Edit Profile</button>
       </form>
     </div>
   </div>

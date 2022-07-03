@@ -1,8 +1,9 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
 //COMPONENTS:
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
 //PAGES:
+
 import HomePage from './pages/HomePage';
 import CandidateProfilePage from './pages/CandidateProfilePage';
 import SignupCandidatePage from './pages/SignupCandidatePage';
