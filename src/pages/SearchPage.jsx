@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
 
 import './SearchPage.css';
 import SideBar from '../components/SideBar';
 import { SearchContext } from '../context/search.context';
 function SearchPage() {
-  const { displayProfile, isLoading } = useContext(SearchContext);
+  const [displayProfile] = useAtom(displayProfileAtom);
+  const [isLoading] = useAtom(isLoadingAtom);
   return (
     <div>
       <h3>Find your perfect candidates</h3>
-      <p>{isLoading}</p>
+      {/* <p>{isLoading ? 'loading' : 'not loading'}</p> */}
       <SideBar />
       {displayProfile.map((profile) => (
         <div key={profile._id} className="profilecard">
