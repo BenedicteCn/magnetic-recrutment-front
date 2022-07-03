@@ -114,6 +114,7 @@ const CandidateProfilePage = () => {
         value={remote}
         onChange={(item) => setSelectedRemote(item)}
         labelledBy="Select"
+
         />
 
       <label>Expected salary:</label>
@@ -146,9 +147,12 @@ const CandidateProfilePage = () => {
         value={experience}
         onChange={(item) => setSelectedExperience(item)}
         labelledBy="Select"
+
       />
-        <button type="submit">Edit Profile</button>
+        <button className ="submit" type="submit">Edit Profile</button>
       </form>
+
+      <p className="delete">Delete my account</p>
     </div>
   </div>
 
