@@ -9,14 +9,13 @@ import SignupCandidatePage from './pages/SignupCandidatePage';
 import LoginCandidatePage from './pages/LoginCandidatePage';
 import LoginHRPage from './pages/LoginHRPage';
 import SignupHRPage from './pages/SignupHRPage';
-import SearchUser from './components/SearchUser';
 import Footer from './components/Footer';
 import SearchPage from './pages/SearchPage';
+import ProfileDetailsPages from './pages/ProfileDetailsPages';
 
 function App() {
   return (
     <div className="App">
-      {/* <SearchUser /> */}
       <Navbar />
       <Routes>
         <Route exact path="/" element={<HomePage />} />
@@ -35,6 +34,7 @@ function App() {
 
         <Route exact path="/hr/signup" element={<SignupHRPage />} />
         <Route exact path="/hr/search" element={<SearchPage />} />
+        <Route path="/hr/search/:profileId" element={<ProfileDetailsPages />} />
       </Routes>
       <Footer />
     </div>

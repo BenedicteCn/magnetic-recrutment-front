@@ -1,0 +1,19 @@
+.githuub-repo-list {
+  list-style: none;
+}
+.githuub-repo-list {
+  list-style: none;
+}
+
+.profileInfo-container {
+  display: flex;
+  margin-top: 10%;
+}
+.profileInfo-details-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-items: center;
+}
+.github-container {
+  text-align: left;
+}
