@@ -1,6 +1,105 @@
 .navbar {
 
-  height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 0.7em
+}
+
+#iamacandidate {
+  background: #222222 0% 0% no-repeat padding-box;
+  border-radius: 11px;
+  opacity: 1;
+  font: normal normal 600 16px/22px Manrope;
+  color: #ffffff;
+  opacity: 1;
+  border: none;
+  margin: 0.5em;
+  padding: 0.8em;  background: #222222 0% 0% no-repeat padding-box;
+  border-radius: 11px;
+  opacity: 1;
+  font: normal normal 600 16px/22px Manrope;
+  color: #ffffff;
+  opacity: 1;
+  border: none;
+}
+
+#iamarecruiter {
+  background: lightgrey;
+  border-radius: 11px;
+  opacity: 1;
+  font: normal normal 600 16px/22px Manrope;
+  color: #222222;
+  opacity: 1;
+  border: none;
+  margin: 0.5em;
+  padding: 0.8em;
+
+}
+
+#iamarecruiter:hover {
+
+  background-color: transparent;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+#iamacandidate:hover {
+  background-color: transparent;
+  border: 1px solid #222222;
+  color: #222222;
+  cursor: pointer;
+
+}
+
+.logout {
+  background: #222222 0% 0% no-repeat padding-box;
+  border-radius: 11px;
+  opacity: 1;
+  font: normal normal 600 16px/22px Manrope;
+  color: #ffffff;
+  opacity: 1;
+  border: none;
+  margin: 0.5em;
+  padding: 0.8em;  background: #222222 0% 0% no-repeat padding-box;
+  border-radius: 11px;
+  opacity: 1;
+  font: normal normal 600 16px/22px Manrope;
+  color: #ffffff;
+  opacity: 1;
+  border: none;
+}
+
+.profilesearchcv {
+
+  background: lightgrey;
+  border-radius: 11px;
+  opacity: 1;
+  font: normal normal 600 16px/22px Manrope;
+  color: #222222;
+  opacity: 1;
+  border: none;
+  margin: 0.5em;
+  padding: 0.8em;
+}
+
+.profilesearchcv:hover {
+
+  background-color: transparent;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background-color: transparent;
+  border: 1px solid #222222;
+  color: #222222;
+  cursor: pointer;
+
+}
+
+span {
+
+  font: normal normal 600 16px/22px Manrope;
+
 }

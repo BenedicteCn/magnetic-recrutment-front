@@ -50,11 +50,9 @@
   content: 'Edit';
   position: absolute;
   left: 0;
-  height: auto;
-  z-index: 1;
   background-image: url('../assets/svg/circle-edit.svg');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%
 }
 
 .hidden {

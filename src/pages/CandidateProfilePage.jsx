@@ -110,7 +110,7 @@ const CandidateProfilePage = () => {
 
   return (
     <div>
-      <h2 className="section_text">Edit your profile</h2>
+      <h2 className="section_text"> Edit your profile</h2>
       <p className="description">
         Please tell us more about you and the job you are looking for!
       </p>
