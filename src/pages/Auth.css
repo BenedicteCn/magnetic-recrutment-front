@@ -46,7 +46,7 @@ input {
 }
 
 a.github {
-  padding: 0.45em;
+  padding: 0.5em;
 
 }
 
@@ -56,12 +56,13 @@ a.github {
   border: 1px solid #222222;
   border-radius: 11px;
   opacity: 1;
-  text-align: left;
+  text-align: center;
   font: normal normal 600 16px/22px Manrope;
   color: #222222;
   opacity: 1;
   margin-top: 1em;
   text-decoration: none;
+
 }
 
 form {

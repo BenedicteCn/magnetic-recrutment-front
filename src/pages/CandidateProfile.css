@@ -22,3 +22,47 @@
   color: #FD4747;
   opacity: 1;
 }
+
+.rmsc .dropdown-heading {
+  width: 400px;
+  font: normal normal medium 16px/22px Manrope;
+
+}
+
+.rmsc .dropdown-heading .dropdown-heading-value {
+  display:flex;
+
+}
+
+.description{
+  text-align: center;
+  margin: 1em;
+  margin-bottom: 2em
+}
+
+
+.section_text {
+  display: inline-block;
+  position: relative;
+}
+
+.section_text::before {
+  content: 'Edit';
+  position: absolute;
+  left: 0;
+  height: auto;
+  z-index: 1;
+  background-image: url('../assets/svg/circle-edit.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hidden {
+  display: none
+}
+
+.form-group-one{
+  display:flex;
+  flex-direction: column;
+  background-color: lightgrey
+}

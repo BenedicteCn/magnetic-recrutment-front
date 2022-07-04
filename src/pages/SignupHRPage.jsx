@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import './Auth.css'
-import HRImage from '../assets/recruiter.png'
-
-const API_URL = "http://localhost:5005";
-
+import "./Auth.css";
+import HRImage from "../assets/recruiter.png";
+import { API_URL } from "../utils/constants";
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");
@@ -19,42 +17,37 @@ function SignupPage(props) {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setUsername(e.target.value);
 
-
   const handleSignupSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     axios({
-      url:'/hr/signup',
+      url: "/hr/signup",
       baseURL: API_URL,
-      method: 'post',
+      method: "post",
       data: {
         email,
         password,
-        username
-      }
-    }).then((response) => {
-      navigate('/hr/login');
-    }).catch((error) => {
-      const errorDescription = error.response.data.message;
-      setErrorMessage(errorDescription);
+        username,
+      },
     })
+      .then((response) => {
+        navigate("/hr/login");
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
-
 
   return (
     <div className="SignupPage">
       <h2>Sign Up</h2>
       <h3>For candidate</h3>
 
-      <img className="loginimage" src={HRImage} alt="" width="250px"/>
+      <img className="loginimage" src={HRImage} alt="" width="250px" />
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmail}
-        />
+        <input type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
         <input
@@ -65,22 +58,22 @@ function SignupPage(props) {
         />
 
         <label>Username:</label>
-        <input
-          type="text"
-          name="name"
-          value={username}
-          onChange={handleName}
-        />
+        <input type="text" name="name" value={username} onChange={handleName} />
 
-        <button className="signup"  type="submit">Sign Up</button>
+        <button className="signup" type="submit">
+          Sign Up
+        </button>
       </form>
 
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p className ="already"> Already have account?
-      <Link to={"/hr/login"}> Login</Link></p>
+      <p className="already">
+        {" "}
+        Already have account?
+        <Link to={"/hr/login"}> Login</Link>
+      </p>
     </div>
-  )
+  );
 }
 
 export default SignupPage;

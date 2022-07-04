@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167.712" height="64.662" viewBox="0 0 167.712 64.662">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1862" data-name="Rectangle 1862" width="165.757" height="58.913" fill="none" stroke="#303df6" stroke-width="2"/>
+    </clipPath>
+  </defs>
+  <g id="circle" transform="matrix(0.999, 0.035, -0.035, 0.999, 2.056, 0)">
+    <g id="Groupe_5308" data-name="Groupe 5308" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <path id="Tracé_4570" data-name="Tracé 4570" d="M21.952,6.771C36.142,2.43,48.659,2.836,63.007,1.508A215.562,215.562,0,0,1,137.321,7.14c5.329,1.357,10.75,2.921,15.286,6.35s8.09,9.107,7.936,15.258c-.18,7.169-5.154,13.019-10.408,17.072-9.732,7.507-19.485,9.263-30.841,10.8-23.767,3.221-47.812,1.97-71.724.714-10.515-.552-21.1-1.115-31.343-3.856-3.774-1.009-7.576-2.362-10.653-5.023A14.111,14.111,0,0,1,.525,37.243c.283-4.329,2.949-8.007,5.936-10.748,6.388-5.864,14.5-8.717,22.479-11.048C72.32,2.773,122.362-.1,165.835,13.543" transform="translate(-0.168 -0.126)" fill="none" stroke="#303df6" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

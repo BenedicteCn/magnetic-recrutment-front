@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { createContext, useCallback, useEffect, useState } from 'react';
-import { API_URL, TOKEN_STORAGE_KEY } from '../utils/constants';
+import axios from "axios";
+import { createContext, useCallback, useEffect, useState } from "react";
+import { API_URL, TOKEN_STORAGE_KEY } from "../utils/constants";
 
 // make a new React context
 const AuthContext = createContext();
@@ -24,19 +24,42 @@ const AuthContextWrapper = ({ children }) => {
     return localStorage.getItem(TOKEN_STORAGE_KEY);
   }, []);
 
+  const removeCookie = async () => {
+    return axios({
+      method: "post",
+      baseURL: API_URL,
+      url: "/candidate/auth/logout",
+      withCredentials: true,
+    });
+  };
+
+  const logout = async () => {
+    try {
+      // Update browser storage and cookies
+      removeToken();
+      await removeCookie("connect.sid");
+
+      // After localStorage and cookies are changed, reauthenticate
+      // (should result in us being logged out according to React state)
+      authenticateUser();
+    } catch (error) {
+      console.log("could not log out", error);
+    }
+  };
+
   const authenticateUser = useCallback(() => {
     const token = getToken();
 
     setIsLoading(true);
 
     axios({
-      method: 'get',
+      method: "get",
       baseURL: API_URL,
-      url: '/hr/verify',
+      url: "/hr/verify",
       headers: {
         Authorization: token && `Bearer ${token}`,
       },
-      withCredentials: true
+      withCredentials: true,
     })
       .then((response) => {
         setUser(response.data);
@@ -60,7 +83,7 @@ const AuthContextWrapper = ({ children }) => {
         user,
         storeToken,
         authenticateUser,
-        removeToken,
+        logout,
         getToken,
       }}
     >

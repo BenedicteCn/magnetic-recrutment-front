@@ -1,18 +1,14 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './Auth.css'
-import CandidateImage from '../assets/candidate.png'
-
-const API_URL = 'http://localhost:5005';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Auth.css";
+import CandidateImage from "../assets/candidate.png";
+import GithubImage from "../assets/svg/github.svg";
+import { API_URL } from "../utils/constants";
 
 function SignupCandidatePage(props) {
-
-  // const github = () => {
-  //   window.open("http://localhost:3000/candidate/auth/github", "_self");
-  // };
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -25,9 +21,9 @@ function SignupCandidatePage(props) {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     axios({
-      url: '/candidate/signup',
+      url: "/candidate/signup",
       baseURL: API_URL,
-      method: 'post',
+      method: "post",
       data: {
         email,
         password,
@@ -35,7 +31,7 @@ function SignupCandidatePage(props) {
       },
     })
       .then((response) => {
-        navigate('/candidate/login');
+        navigate("/candidate/login");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -48,8 +44,7 @@ function SignupCandidatePage(props) {
       <h2>Sign Up</h2>
       <h3>For candidate</h3>
 
-      <img className="loginimage" src={CandidateImage} alt="" width="250px"/>
-
+      <img className="loginimage" src={CandidateImage} alt="" width="250px" />
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
@@ -64,19 +59,28 @@ function SignupCandidatePage(props) {
         />
 
         <label>Username:</label>
-        <input type="text" name="username" value={username} onChange={handleName} />
+        <input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleName}
+        />
 
-        <button className="signup" type="submit">Sign Up</button>
+        <button className="signup" type="submit">
+          Sign Up
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <a className="github" href="http://localhost:5005/candidate/auth/github">
+      <a className="github" href={`${API_URL}/candidate/auth/github`}>
+        <img className="GithubImage" src={GithubImage} alt="" width="18px" />{" "}
         Sign up with Github
       </a>
 
-      <p className ="already">Already have account?
-      <Link to={'/candidate/login'}> Login</Link></p>
-
+      <p className="already">
+        Already have account?
+        <Link to={"/candidate/login"}> Login</Link>
+      </p>
     </div>
   );
 }
