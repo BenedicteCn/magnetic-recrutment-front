@@ -6,6 +6,7 @@ import { useAtom } from 'jotai';
 // import { useContext } from 'react';
 // import { SearchContext } from '../context/search.context';
 import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
+import './SideBar.css';
 function SideBar() {
   const [searchProfile, setSearchProfile] = useState('');
 
@@ -116,7 +117,7 @@ function SideBar() {
   };
 
   return (
-    <div className="profile-container">
+    <div className="filter-container">
       <input
         type="text"
         placeholder=""
@@ -128,8 +129,8 @@ function SideBar() {
 
       {/* checkbox languages */}
       <h4 className="language-checkbox">Languages</h4>
-      <div className="container">
-        <form>
+      <div className="language-checkbox-container">
+        <form className="search-form">
           <div className="row">
             <input
               type="checkbox"
@@ -137,8 +138,12 @@ function SideBar() {
               id="languages"
               value="JavaScript"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">JavaScript</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              JavaScript
+            </label>
           </div>
           <div className="row">
             <input
@@ -147,8 +152,12 @@ function SideBar() {
               id="languages"
               value="HTML"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">HTML</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              HTML
+            </label>
           </div>
           <div className="row">
             <input
@@ -157,8 +166,12 @@ function SideBar() {
               id="languages"
               value="CSS"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">CSS</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              CSS
+            </label>
           </div>
           <div className="row">
             <input
@@ -167,8 +180,12 @@ function SideBar() {
               id="languages"
               value="ReactJS"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">ReactJS</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              ReactJS
+            </label>
           </div>
           <div className="row">
             <input
@@ -177,8 +194,12 @@ function SideBar() {
               id="languages"
               value="NodeJS"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">NodeJS</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              NodeJS
+            </label>
           </div>
           <div className="row">
             <input
@@ -187,8 +208,12 @@ function SideBar() {
               id="languages"
               value="MongoDB"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">MongoDB</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              MongoDB
+            </label>
           </div>
           <div className="row">
             <input
@@ -197,8 +222,12 @@ function SideBar() {
               id="languages"
               value="ExpressJS"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">ExpressJS</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              ExpressJS
+            </label>
           </div>
           <div className="row">
             <input
@@ -207,14 +236,18 @@ function SideBar() {
               id="languages"
               value="Python"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="languages">Python</label>
+            <span class="checkmark"></span>
+            <label className="label" htmlFor="languages">
+              Python
+            </label>
           </div>
         </form>
       </div>
       {/* checkbox contract type */}
       <h4 className="contract-checkbox">Contracts</h4>
-      <div className="container">
+      <div className="contract-checkbox-container">
         <form>
           <div className="row">
             <input
@@ -223,8 +256,11 @@ function SideBar() {
               id="contracts"
               value="Internship"
               onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              className="filter-checkbox"
             />
-            <label htmlFor="contracts">Internship</label>
+            <label className="label" htmlFor="contracts">
+              Internship
+            </label>
           </div>
           <div className="row">
             <input
@@ -233,8 +269,11 @@ function SideBar() {
               id="contracts"
               value="part-time"
               onChange={(e) => handleChangeCheckbox(e, 'cont')}
+              className="filter-checkbox"
             />
-            <label htmlFor="contracts">Part-time</label>
+            <label className="label" htmlFor="contracts">
+              Part-time
+            </label>
           </div>
           <div className="row">
             <input
@@ -243,8 +282,11 @@ function SideBar() {
               id="contracts"
               value="Full-time"
               onChange={(e) => handleChangeCheckbox(e, 'cont')}
+              className="filter-checkbox"
             />
-            <label htmlFor="contracts">Full-time</label>
+            <label className="label" htmlFor="contracts">
+              Full-time
+            </label>
           </div>
           <div className="row">
             <input
@@ -253,15 +295,18 @@ function SideBar() {
               id="contracts"
               value="Freelance"
               onChange={(e) => handleChangeCheckbox(e, 'cont')}
+              className="filter-checkbox"
             />
-            <label htmlFor="contracts">Freelance</label>
+            <label className="label" htmlFor="contracts">
+              Freelance
+            </label>
           </div>
         </form>
       </div>
       <div>
         {/* checkbox experience */}
         <h4 className="experience-checkbox">Experiences</h4>
-        <div className="container">
+        <div className="experience-checkbox-container">
           <form>
             <div className="row">
               <input
@@ -270,8 +315,11 @@ function SideBar() {
                 id="experiences"
                 value="< 2 years"
                 onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                className="filter-checkbox"
               />
-              <label htmlFor="experiences">Less than 2 years</label>
+              <label className="label" htmlFor="experiences">
+                Less than 2 years
+              </label>
             </div>
             <div className="row">
               <input
@@ -280,8 +328,11 @@ function SideBar() {
                 id="experiences"
                 value="2-5 years"
                 onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                className="filter-checkbox"
               />
-              <label htmlFor="experiences">2-5 years</label>
+              <label className="label" htmlFor="experiences">
+                2-5 years
+              </label>
             </div>
             <div className="row">
               <input
@@ -290,8 +341,11 @@ function SideBar() {
                 id="experiences"
                 value="5-10 years"
                 onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                className="filter-checkbox"
               />
-              <label htmlFor="experiences">5-10 years</label>
+              <label className="label" htmlFor="experiences">
+                5-10 years
+              </label>
             </div>
             <div className="row">
               <input
@@ -300,8 +354,11 @@ function SideBar() {
                 id="experiences"
                 value="> 10 years"
                 onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                className="filter-checkbox"
               />
-              <label htmlFor="experiences">More than 10 years</label>
+              <label className="label" htmlFor="experiences">
+                More than 10 years
+              </label>
             </div>
           </form>
         </div>
