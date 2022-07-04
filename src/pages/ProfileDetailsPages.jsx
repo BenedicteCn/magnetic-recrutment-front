@@ -6,6 +6,7 @@ import './ProfileDetailsPages.css';
 
 import StarImage from '../assets/svg/star-empty.svg';
 import ContactImage from '../assets/svg/contact.svg';
+import LinkImage from '../assets/svg/link.svg';
 const ProfileDetailsPages = () => {
   const [profileInfo, setProfileInfo] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
@@ -56,17 +57,21 @@ const ProfileDetailsPages = () => {
             <p className="candidate-text"> Contact Candidate</p>
           </div>
         </div>
-        <p>Github Projects</p>
+        <h4 className="left-container-title">Github Projects</h4>
         {profileInfo.githubProfile && (
           <div>
             <ul>
               {profileInfo.githubProfile.repos.slice(0, 5).map((repo) => (
                 <li key={repo._id} className="githuub-repo-list">
-                  <a href={repo.url}> {repo.name.split('/')[1]}</a>
+                  <img className="linkImage" src={LinkImage} alt="" />
+                  <a className="repos-link" href={repo.url}>
+                    {' '}
+                    {repo.name.split('/')[1]}
+                  </a>
                 </li>
               ))}
             </ul>
-            <p>Most used langugages</p>
+            <h4 className="left-container-title">Most used langugages</h4>
             <ol>
               {profileInfo.githubProfile.languages
                 .sort((a, b) => b.byteCount - a.byteCount)
@@ -80,9 +85,12 @@ const ProfileDetailsPages = () => {
           </div>
         )}
         <div className="profile-card">
-          <p>Remote: {profileInfo.remote}</p>
-          <p>Experience: {profileInfo.experience}</p>
-          <p>Expected Salary: ${profileInfo.salary}</p>
+          <h4 className="left-container-title">Remote</h4>
+          <p> {profileInfo.remote}</p>
+          <h4 className="left-container-title">Experience</h4>
+          <p className="left-container-text">{profileInfo.experience}</p>
+          <h4 className="left-container-title">Expected Salary</h4>
+          <p className="left-container-text"> ${profileInfo.salary}</p>
         </div>
       </div>
       <div className="profileInfo-details-container">

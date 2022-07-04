@@ -6,10 +6,14 @@ import { useAtom } from 'jotai';
 // import { useContext } from 'react';
 // import { SearchContext } from '../context/search.context';
 import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
-import './SideBar.css';
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
+
 function SideBar() {
   const [searchProfile, setSearchProfile] = useState('');
+  const { isLoggedIn, getToken } = useContext(AuthContext);
 
+  const token = getToken();
   const [languagesUserInfo, setUserLanguagesInfo] = useState({
     languages: [],
   });
@@ -112,6 +116,9 @@ function SideBar() {
     console.log(query);
     const { data } = await axios.get(`http://localhost:5005/profile`, {
       params: query,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     return data;
   };

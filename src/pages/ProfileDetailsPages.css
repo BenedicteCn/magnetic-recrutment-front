@@ -3,6 +3,7 @@
 }
 .githuub-repo-list {
   list-style: none;
+  margin-left: 0;
 }
 
 .profileInfo-container {
@@ -39,11 +40,9 @@
 }
 .star {
   display: flex;
-  margin: 0;
 }
 .contact {
   display: flex;
-  margin: 0;
 }
 
 .top-card-container {
@@ -51,4 +50,26 @@
   background-repeat: no-repeat;
   background-size: contain;
   padding: 1em;
+}
+
+.left-container-title {
+  font: normal normal 600 Manrope;
+  color: #303df6;
+  font-size: 16px;
+  text-align: left;
+}
+
+.repos-link {
+  color: inherit;
+  margin-left: 10px;
+  /* text-decoration: none; */
+}
+
+.linkImage {
+  width: 18px;
+}
+.left-container-text {
+  letter-spacing: 0px;
+  color: #222222;
+  font: bold bold 600 16px Manrope;
 }
