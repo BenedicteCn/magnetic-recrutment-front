@@ -13,6 +13,7 @@ import SignupHRPage from "./pages/SignupHRPage";
 import Footer from "./components/Footer";
 import SearchPage from "./pages/SearchPage";
 import ProfileDetailsPages from "./pages/ProfileDetailsPages";
+import CVsaved from "./pages/CVsaved";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         />
         <Route exact path="/hr/login" element={<LoginHRPage />} />
         <Route exact path="/candidate/login" element={<LoginCandidatePage />} />
+        <Route exact path="/hr/cvsaved" element={<CVsaved />} />
+
         <Route
           exact
           path="/candidate/signup"

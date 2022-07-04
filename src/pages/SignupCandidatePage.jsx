@@ -42,8 +42,9 @@ function SignupCandidatePage(props) {
   return (
     <div className="SignupPage">
       <h2>Sign Up</h2>
-      <h3>For candidate</h3>
-
+      <h3 id="forrecruiter">
+        For &nbsp;<div className="candidatecircle">candidate</div>
+      </h3>
       <img className="loginimage" src={CandidateImage} alt="" width="250px" />
 
       <form onSubmit={handleSignupSubmit}>

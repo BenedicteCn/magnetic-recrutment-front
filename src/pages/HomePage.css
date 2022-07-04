@@ -8,8 +8,11 @@
   display: flex;
   justify-content: center;
   justify-content: space-around;
-  background: rgb(48,61,246);
-  background: linear-gradient(54deg, rgba(48,61,246,1) 0%, rgba(9,9,121,1) 45%, rgba(159,205,214,1) 100%);
+  background-image: url('../assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: rgb(48,61,246);
+  background: linear-gradient(54deg, rgba(48,61,246,1) 0%, rgba(9,9,121,1) 45%, rgba(159,205,214,1) 100%); */
 }
 
 .section-two {
@@ -21,14 +24,14 @@
 }
 
 .section-three {
-  padding-left: 3em;
-  padding-right: 3em;
-  padding-top: 5em;
-  padding-bottom: 15em;
 
+  padding-top: 3em;
+  padding-bottom: 15em;
   background-image: url('../assets/02.png');
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
 /* BUTTONS */
@@ -55,6 +58,8 @@
   border: none;
   margin: 0.5em;
   padding: 0.8em;
+
+
 }
 
 #hrbutton:hover {
@@ -125,10 +130,7 @@ h1 {
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
-  top: 182px;
-  left: 51px;
-  width: 478px;
-  height: 146px;
+
 }
 
 h2 {
@@ -170,16 +172,12 @@ h3 {
 }
 
 .textpart {
-
-  padding-left: 12em;
-  padding-right: 12em;
   text-align: center;
 }
 
 .textpartthree {
 
-  padding-left: 22em;
-  padding-right: 22em;
+  max-width: 40em;
   text-align: center;
 }
 /* IMAGES */
@@ -192,4 +190,33 @@ h3 {
 
 .ImageTwo {
   width: 425px
+}
+
+.maintitle{
+  position: relative;
+}
+
+.maintitle::after {
+  content: 'perfect';
+  position: absolute;
+  left: 0;
+  background-image: url('../assets/svg/circle-perfect.svg');
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+
+.introduction::before {
+
+  content: 'Introduction';
+  position: absolute;
+  background-image: url('../assets/svg/circle-introduction.svg');
+  background-repeat: no-repeat;
+  background-size: 94.5%;
+}
+
+.search{
+  content: 'Search';
+  background-image: url('../assets/svg/circle-search.svg');
+  background-repeat: no-repeat;
+
 }

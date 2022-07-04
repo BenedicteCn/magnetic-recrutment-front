@@ -13,47 +13,44 @@ const Navbar = () => {
         <img className="logo" src={Logo} alt="" width="250px" />
       </Link>
 
-      {/* {console.log(user)} */}
-
-      {/*    UPDATE     */}
-      {/*    add the role of the user     */}
       {isLoggedIn && user.role === "HR" && (
-        <>
-          <Link to="/">
-            <button>Search candidates</button>
+        <div className="nav-hr">
+          <span>Hi, {user.username}</span>
+          <Link to="/hr/search">
+            <button className="profilesearchcv">Search candidates</button>
           </Link>
-          <Link to="/">
-            <button>CV saved</button>
+          <Link to="/hr/cvsaved">
+            <button className="profilesearchcv">CV saved</button>
           </Link>
-        </>
+          <button className="logout" onClick={logout}>
+            Logout
+          </button>
+        </div>
       )}
 
       {isLoggedIn && user.role === "Candidate" && (
-        <>
-          <Link to="/">
-            <button>Profile</button>
-          </Link>
-        </>
-      )}
-
-      {isLoggedIn && (
-        <>
-          <button onClick={logout}>Logout</button>
+        <div className="nav-candidate">
           <span>Hi, {user.username}</span>
-        </>
+          <Link to="/profile/create">
+            <button className="profilesearchcv">Profile</button>
+          </Link>
+          <button className="logout" onClick={logout}>
+            Logout
+          </button>
+        </div>
       )}
 
       {!isLoggedIn && (
-        <>
+        <div className="notloggedin">
           <Link to="/candidate/login">
             {" "}
-            <button>I am a candidate</button>{" "}
+            <button id="iamacandidate">I am a candidate</button>{" "}
           </Link>
           <Link to="/hr/login">
             {" "}
-            <button>I am a recruiter</button>{" "}
+            <button id="iamarecruiter">I am a recruiter</button>{" "}
           </Link>
-        </>
+        </div>
       )}
     </div>
   );

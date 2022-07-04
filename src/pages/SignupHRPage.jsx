@@ -41,7 +41,9 @@ function SignupPage(props) {
   return (
     <div className="SignupPage">
       <h2>Sign Up</h2>
-      <h3>For candidate</h3>
+      <h3 id="forrecruiter">
+        For &nbsp;<div className="recruitercircle">recruiter</div>
+      </h3>
 
       <img className="loginimage" src={HRImage} alt="" width="250px" />
 
