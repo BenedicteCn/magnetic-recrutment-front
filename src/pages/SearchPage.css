@@ -1,22 +1,123 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-h2 {
+/* h2 {
   font: normal normal 600 Manrope;
   font-size: 50px;
   letter-spacing: 0px;
   color: #222222;
   opacity: 1;
+} */
+.big-search-container {
+  display: flex;
+  justify-content: space-around;
+}
+.candidate-details-container {
+  margin-right: 8%;
+}
+.search-title {
+  font: bold bold 1200 Manrope;
+  font-size: 54px;
+
+  color: #222222;
+  opacity: 1;
+  letter-spacing: 3.5px;
+  margin-bottom: 5%;
+}
+.perfectCircleImage {
+  content: 'perfect';
+  position: absolute;
+  top: 9%;
+  left: 49%;
+  background-repeat: no-repeat;
+}
+
+.searchpage-container {
+  display: flex;
+}
+.search-details-container {
+  /* display: flex;
+  justify-content: space-around; */
+  font: normal normal medium Manrope;
+  color: #222222;
+  opacity: 1;
+  margin: 1%;
+}
+.filter-container {
+  position: relative;
 }
 .filter-container form {
   align-items: flex-start;
 }
-.search-details-container {
-  display: flex;
-  justify-content: center;
+
+h4 {
+  font: normal normal 600 Manrope;
+  color: #303df6;
+  font-size: 16px;
+  text-align: left;
+}
+.filter-checkbox {
   font: normal normal medium Manrope;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding-left: 40px;
+  text-align: left;
+  line-height: 32px;
+  cursor: pointer;
+  border: 2px solid #303df6;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+/* .label {
+      font: normal normal medium Manrope;
+  color: black;
+  text-align: left;
+  font-size: 14px;
+} */
+.label {
+  text-align: left;
+  font: normal normal 600 Manrope;
+  letter-spacing: 1px;
   color: #222222;
-  opacity: 1;
+
+  /* padding: 0.5em; */
+  font-size: 14px;
 }
 input[type='checkbox'] {
   border: 1px solid #303df6;
   border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 1.5rem;
+}
+.searchimage {
+  margin-bottom: 2%;
+}
+
+.recruiting-text {
+  text-align: center;
+  font: normal normal 400 Manrope;
+  color: #222222;
+  font-size: 18px;
+  width: 430px;
+  margin: 10px auto 5px auto;
+}
+.v-line {
+  /* border-left: 1px solid #000; */
+  height: 90%;
+  left: 22%;
+  bottom: -0.005%;
+  position: absolute;
+  border: 0.4px solid #707070;
+}
+.h-line {
+  width: 100%;
 }
