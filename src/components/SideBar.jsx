@@ -118,14 +118,14 @@ function SideBar() {
 
   return (
     <div className="filter-container">
-      <input
+      {/* <input
         type="text"
         placeholder=""
         value={searchProfile}
         onChange={handleChange}
         className="searchbar"
       />
-      <button onClick={handleClick}>🔍</button>
+      <button onClick={handleClick}>🔍</button> */}
 
       {/* checkbox languages */}
       <h4 className="language-checkbox">Languages</h4>

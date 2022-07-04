@@ -7,6 +7,7 @@
 
 .profileInfo-container {
   display: flex;
+  justify-content: space-evenly;
   margin-top: 10%;
 }
 .profileInfo-details-container {
@@ -16,4 +17,38 @@
 }
 .github-container {
   text-align: left;
+}
+.searchNameImage {
+  position: absolute;
+  width: 514px;
+  height: 256px;
+}
+.top-card-container {
+  position: relative;
+}
+.candidate-name {
+  color: #ffffff;
+  font: bold bold 600 16px Manrope;
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-size: 50px;
+}
+.candidate-text {
+  color: #ffffff;
+  font: bold bold 600 16px Manrope;
+}
+.star {
+  display: flex;
+  margin: 0;
+}
+.contact {
+  display: flex;
+  margin: 0;
+}
+
+.top-card-container {
+  background-image: url('../assets/name-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 1em;
 }
