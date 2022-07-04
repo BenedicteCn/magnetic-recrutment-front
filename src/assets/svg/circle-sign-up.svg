@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="163.377" height="55.118" viewBox="0 0 163.377 55.118">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1862" data-name="Rectangle 1862" width="161.748" height="49.503" fill="none" stroke="#303df6" stroke-width="2"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_5308" data-name="Groupe 5308" transform="matrix(0.999, 0.035, -0.035, 0.999, 1.728, 0)" clip-path="url(#clip-path)">
+    <path id="Tracé_4570" data-name="Tracé 4570" d="M21.433,5.77C35.28,2.122,47.495,2.463,61.495,1.347a243.267,243.267,0,0,1,72.517,4.732c5.2,1.14,10.49,2.455,14.917,5.336s7.895,7.652,7.744,12.821c-.176,6.024-5.03,10.94-10.157,14.345-9.5,6.308-19.014,7.784-30.1,9.077-23.192,2.707-46.656,1.656-69.989.6-10.26-.464-20.592-.937-30.585-3.24-3.683-.848-7.393-1.985-10.4-4.221S.245,35.036.524,31.374C.8,27.737,3.4,24.646,6.317,22.343c6.234-4.927,14.151-7.325,21.936-9.284C70.583,2.41,119.415,0,161.837,11.459" transform="translate(-0.176 -0.186)" fill="none" stroke="#303df6" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>

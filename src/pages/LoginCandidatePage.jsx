@@ -1,15 +1,15 @@
-import { useContext, useState } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import { API_URL } from '../utils/constants';
-import './Auth.css'
-import LoginImage from '../assets/login.png'
-
+import { useContext, useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import { API_URL } from "../utils/constants";
+import "./Auth.css";
+import LoginImage from "../assets/login.png";
+import GithubImage from "../assets/svg/github.svg";
 
 function LoginCandidatePage(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -23,21 +23,21 @@ function LoginCandidatePage(props) {
     e.preventDefault();
 
     axios({
-      url: '/candidate/login',
+      url: "/candidate/login",
       baseURL: API_URL,
-      method: 'post',
+      method: "post",
       data: {
         email,
         password,
       },
     }).then((response) => {
       const { authToken } = response.data;
-      console.log(authToken)
+      console.log(authToken);
       // let the AuthContext have the authToken
       storeToken(authToken);
       authenticateUser();
       // redirect home
-      navigate('/');
+      navigate("/");
     });
   };
 
@@ -45,7 +45,7 @@ function LoginCandidatePage(props) {
     <div className="LoginPage">
       <h2>Login</h2>
 
-      <img className="loginimage" src={LoginImage} alt="" width="250px"/>
+      <img className="loginimage" src={LoginImage} alt="" width="250px" />
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -59,17 +59,21 @@ function LoginCandidatePage(props) {
           onChange={handlePassword}
         />
 
-        <button className="signup" type="submit">Login</button>
+        <button className="signup" type="submit">
+          Login
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <a className="github" href="http://localhost:5005/candidate/auth/github">
-        Log in with Github
+      <a className="github" href={`${API_URL}/candidate/auth/github`}>
+        <img className="GithubImage" src={GithubImage} alt="" width="18px" />{" "}
+        Login with Github
       </a>
 
-      <p className ="already">Don't have an account yet?
-
-      <Link to={'/candidate/signup'}> Sign Up</Link></p>
+      <p className="already">
+        Don't have an account yet?
+        <Link to={"/candidate/signup"}> Sign Up</Link>
+      </p>
     </div>
   );
 }

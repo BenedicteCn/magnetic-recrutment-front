@@ -4,15 +4,15 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 //PAGES:
 
-import HomePage from './pages/HomePage';
-import CandidateProfilePage from './pages/CandidateProfilePage';
-import SignupCandidatePage from './pages/SignupCandidatePage';
-import LoginCandidatePage from './pages/LoginCandidatePage';
-import LoginHRPage from './pages/LoginHRPage';
-import SignupHRPage from './pages/SignupHRPage';
-import Footer from './components/Footer';
-import SearchPage from './pages/SearchPage';
-import ProfileDetailsPages from './pages/ProfileDetailsPages';
+import HomePage from "./pages/HomePage";
+import CandidateProfilePage from "./pages/CandidateProfilePage";
+import SignupCandidatePage from "./pages/SignupCandidatePage";
+import LoginCandidatePage from "./pages/LoginCandidatePage";
+import LoginHRPage from "./pages/LoginHRPage";
+import SignupHRPage from "./pages/SignupHRPage";
+import Footer from "./components/Footer";
+import SearchPage from "./pages/SearchPage";
+import ProfileDetailsPages from "./pages/ProfileDetailsPages";
 
 function App() {
   return (

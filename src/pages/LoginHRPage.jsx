@@ -61,7 +61,6 @@ function LoginHRPage(props) {
       <button className="signup" type='submit'>Login</button>
       </form>
       {errorMessage && <p className='error-message'>{errorMessage}</p>}
-
       <p className ="already">Don't have an account yet?
       <Link to={'/hr/signup'}> Sign Up</Link></p>
     </div>

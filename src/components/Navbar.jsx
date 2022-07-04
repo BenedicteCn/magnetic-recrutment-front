@@ -1,21 +1,23 @@
-import { Link } from 'react-router-dom';
-import { useContext } from 'react'; // <== IMPORT
-import { AuthContext } from '../context/auth.context'; // <== IMPORT
+import { Link } from "react-router-dom";
+import { useContext } from "react"; // <== IMPORT
+import { AuthContext } from "../context/auth.context"; // <== IMPORT
+import Logo from "../assets/svg/logo.svg";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const { isLoggedIn, user, removeToken } = useContext(AuthContext); // <== ADD
+  const { isLoggedIn, user, logout } = useContext(AuthContext); // <== ADD
 
   return (
     <div className="navbar">
       <Link to="/">
-        <button>Home</button>
+        <img className="logo" src={Logo} alt="" width="250px" />
       </Link>
 
       {/* {console.log(user)} */}
 
       {/*    UPDATE     */}
       {/*    add the role of the user     */}
-      {isLoggedIn && user.role === 'HR' && (
+      {isLoggedIn && user.role === "HR" && (
         <>
           <Link to="/">
             <button>Search candidates</button>
@@ -23,17 +25,20 @@ const Navbar = () => {
           <Link to="/">
             <button>CV saved</button>
           </Link>
-          <button onClick={removeToken}>Logout</button>
-          <span>Hi, {user.username}</span>
         </>
       )}
 
-      {isLoggedIn && user.role === 'Candidate' && (
+      {isLoggedIn && user.role === "Candidate" && (
         <>
           <Link to="/">
             <button>Profile</button>
           </Link>
-          <button onClick={removeToken}>Logout</button>
+        </>
+      )}
+
+      {isLoggedIn && (
+        <>
+          <button onClick={logout}>Logout</button>
           <span>Hi, {user.username}</span>
         </>
       )}
@@ -41,12 +46,12 @@ const Navbar = () => {
       {!isLoggedIn && (
         <>
           <Link to="/candidate/login">
-            {' '}
-            <button>I am a candidate</button>{' '}
+            {" "}
+            <button>I am a candidate</button>{" "}
           </Link>
           <Link to="/hr/login">
-            {' '}
-            <button>I am a recruiter</button>{' '}
+            {" "}
+            <button>I am a recruiter</button>{" "}
           </Link>
         </>
       )}
