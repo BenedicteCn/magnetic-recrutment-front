@@ -1,1 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Manrope:wght@200&family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+h2 {
+  font: normal normal 600 Manrope;
+  font-size: 50px;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+}
+.filter-container form {
+  align-items: flex-start;
+}
+.search-details-container {
+  display: flex;
+  justify-content: center;
+  font: normal normal medium Manrope;
+  color: #222222;
+  opacity: 1;
+}
+input[type='checkbox'] {
+  border: 1px solid #303df6;
+  border-radius: 5px;
+}
