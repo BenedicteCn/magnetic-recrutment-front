@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link to="/hr/search">
             <button className="profilesearchcv">Search candidates</button>
           </Link>
-          <Link to="/">
+          <Link to="/hr/cvsaved">
             <button className="profilesearchcv">CV saved</button>
           </Link>
           <button className="logout" onClick={logout}>

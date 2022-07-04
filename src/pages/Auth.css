@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Manrope:wght@200&family=Open+Sans:wght@300;400&display=swap');
 
+/* FORM CSS */
+
+form {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+}
 
 label {
   text-align: left;
@@ -42,6 +50,13 @@ input {
   border: none;
   margin-top: 1.5em;
   margin-bottom: 0.7sem;
+}
+
+.signup:hover {
+
+  background-color: transparent;
+  border: 1px solid #222222;
+  color: #222222;
   cursor: pointer;
 }
 
@@ -49,6 +64,8 @@ a.github {
   padding: 0.5em;
 
 }
+
+/* BUTTONS */
 
 .github {
   width: 100px;
@@ -65,14 +82,48 @@ a.github {
 
 }
 
-form {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1em;
-}
+/* IMAGE */
 
 .loginimage {
 
   padding: 2.2em
+}
+
+.error-message {
+
+  padding: 1em;
+  color: red;
+}
+
+.recruitercircle{
+  position: relative;
+}
+
+.recruitercircle:before{
+
+  content: 'recruiter';
+  position: absolute;
+  background-image: url('../assets/svg/circle-sign-up.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+#forrecruiter {
+  display:flex;
+  justify-content: center
+}
+
+.candidatercircle{
+  position: relative;
+}
+
+.candidatecircle:before{
+
+  content: 'candidate';
+  position: absolute;
+  background-image: url('../assets/svg/circle-sign-up.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
 }

@@ -104,8 +104,18 @@ const CandidateProfilePage = () => {
       })
       .catch(function (error) {
         let successMessage = document.querySelector(".success-message");
-        successMessage.innerHTML = JSON.stringify(error);
+        successMessage.innerHTML = "Please upload a file";
       });
+
+    // const getFileUploaded = () => {
+    //   axios
+    //     .get(`${API_URL}/api/projects/${projectId}`)
+    //     .then((response) => {
+    //       const oneProject = response.data;
+    //       setProject(oneProject);
+    //     })
+    //     .catch((error) => console.log(error));
+    // };
   };
 
   return (
@@ -127,11 +137,12 @@ const CandidateProfilePage = () => {
                   onChange={(e) => setCV(e.target.files[0])}
                 />
               </label>
+              <div className="ulpoaded-file"></div>
               <button className="submit" type="submit">
                 Upload CV
               </button>
               <h4>PDF or PNG accepted only</h4>
-              <div className="success-message"></div>
+              <div className="error-message"></div>
             </form>
           </div>
 

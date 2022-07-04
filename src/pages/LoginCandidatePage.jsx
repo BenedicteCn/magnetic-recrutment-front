@@ -30,15 +30,39 @@ function LoginCandidatePage(props) {
         email,
         password,
       },
-    }).then((response) => {
-      const { authToken } = response.data;
-      console.log(authToken);
-      // let the AuthContext have the authToken
-      storeToken(authToken);
-      authenticateUser();
-      // redirect home
-      navigate("/");
-    });
+    })
+      .then((response) => {
+        const { authToken } = response.data;
+        console.log(authToken);
+        // let the AuthContext have the authToken
+        storeToken(authToken);
+        authenticateUser();
+        // redirect home
+        navigate("/profile/create");
+      })
+      .catch(function (error) {
+        let message = document.querySelector(".error-message");
+        message.innerHTML = "Please connect with a candidate profile";
+      });
+
+    // axios.interceptors.response.use(undefined, (error) => {
+    //   const statusCode = error.response ? error.response.status : null;
+
+    //   if (statusCode === 401) {
+    //     let errorMessage = document.querySelector(".error-message");
+    //     errorMessage.innerHTML = JSON.stringify(error);
+    //   }
+
+    //   if (statusCode >= 500) {
+    //     console.log(error);
+    //   }
+
+    //   if (statusCode === 400) {
+    //     console.log(error);
+    //   }
+
+    //   return Promise.reject(error);
+    // });
   };
 
   return (
@@ -63,12 +87,12 @@ function LoginCandidatePage(props) {
           Login
         </button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <a className="github" href={`${API_URL}/candidate/auth/github`}>
         <img className="GithubImage" src={GithubImage} alt="" width="18px" />{" "}
         Login with Github
       </a>
+      <div className="error-message"></div>
 
       <p className="already">
         Don't have an account yet?
