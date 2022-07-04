@@ -1,6 +1,6 @@
-import axios from "axios";
-import { createContext, useCallback, useEffect, useState } from "react";
-import { API_URL, TOKEN_STORAGE_KEY } from "../utils/constants";
+import axios from 'axios';
+import { createContext, useCallback, useEffect, useState } from 'react';
+import { API_URL, TOKEN_STORAGE_KEY } from '../utils/constants';
 
 // make a new React context
 const AuthContext = createContext();
@@ -26,9 +26,9 @@ const AuthContextWrapper = ({ children }) => {
 
   const removeCookie = async () => {
     return axios({
-      method: "post",
+      method: 'post',
       baseURL: API_URL,
-      url: "/candidate/auth/logout",
+      url: '/candidate/auth/logout',
       withCredentials: true,
     });
   };
@@ -37,13 +37,13 @@ const AuthContextWrapper = ({ children }) => {
     try {
       // Update browser storage and cookies
       removeToken();
-      await removeCookie("connect.sid");
+      await removeCookie('connect.sid');
 
       // After localStorage and cookies are changed, reauthenticate
       // (should result in us being logged out according to React state)
       authenticateUser();
     } catch (error) {
-      console.log("could not log out", error);
+      console.log('could not log out', error);
     }
   };
 
@@ -53,9 +53,9 @@ const AuthContextWrapper = ({ children }) => {
     setIsLoading(true);
 
     axios({
-      method: "get",
+      method: 'get',
       baseURL: API_URL,
-      url: "/hr/verify",
+      url: '/hr/verify',
       headers: {
         Authorization: token && `Bearer ${token}`,
       },
