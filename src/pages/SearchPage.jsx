@@ -10,11 +10,10 @@ import PerfectCircleImage from '../assets/svg/circle-perfect-02.svg';
 function SearchPage() {
   const [displayProfile] = useAtom(displayProfileAtom);
   // const [isLoading] = useAtom(isLoadingAtom);
+  console.log(' am searchpage info', displayProfile);
   return (
     <div className="big-search-container">
       <div className="search-details-container">
-        <hr />
-        <div className="v-line"></div>
         <SideBar />
       </div>
       <div className="candidate-details-container">
@@ -38,10 +37,8 @@ function SearchPage() {
             {displayProfile.map((profile) => (
               <div key={profile._id} className="profilecard">
                 <Link to={`/hr/search/${profile._id}`}>
-                  <h4>
-                    {profile.firstname} {profile.lastname}
-                  </h4>
-                  <img src={profile.url} alt="profileImg" width="200px" />
+                  <h4>{profile.username}</h4>
+                  <img src={profile.cv} alt="profileImg" width="200px" />
                 </Link>
               </div>
             ))}
