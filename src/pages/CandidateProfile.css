@@ -1,3 +1,5 @@
+/* BUTTONS */
+
 .submit {
   border: none;
   cursor: pointer;
@@ -11,7 +13,7 @@
   opacity: 1;
   width: 100px;
   height: 35px;
-  margin-top: 1em;
+  margin-top: 0.3em;
 }
 
 .delete {
@@ -22,6 +24,8 @@
   color: #FD4747;
   opacity: 1;
 }
+
+/* MULTISELECT AND FORM */
 
 .rmsc .dropdown-heading {
   width: 400px;
@@ -55,12 +59,58 @@
   background-size: 100%
 }
 
-.hidden {
+/* .hidden {
   display: none
-}
+} */
 
 .form-group-one{
   display:flex;
   flex-direction: column;
   background-color: lightgrey
+}
+
+/* IMAGE */
+
+.cloud {
+  border: solid 1px;
+  padding: 0.7em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+/* TEXT */
+
+.success-message-two {
+
+  color: grey;
+}
+
+#file-upload-button {
+  color:white
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cloudinaryinput {
+  background-color: lightgray;
+  border: none;
+}
+
+.usernameinput {
+  border-radius:0.4em;
+  font-family: Manrope;
+  font-size: 16px;
+  width: 400px;
+  text-align: center
+}
+
+.delete-account {
+  font-family: Manrope;
+  font-weight: 600;
+  color: red;
+  margin-top: 1.2em;
 }
