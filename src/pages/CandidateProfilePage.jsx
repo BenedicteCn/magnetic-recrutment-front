@@ -1,6 +1,8 @@
 import React from "react";
 import { MultiSelect } from "react-multi-select-component";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import "./CandidateProfile.css";
 import DeleteImage from "../assets/svg/trash-bin.svg";
@@ -29,6 +31,25 @@ const optionsContract = [
   { label: "Part-time", value: "Part-time" },
 ];
 
+const optionsTechnologies = [
+  { label: "HTML", value: "HTML" },
+  { label: "CSS", value: "CSS" },
+  { label: "Ruby", value: "Ruby" },
+  { label: "JavaScript", value: "JavaScript" },
+  { label: "React", value: "React" },
+  { label: "Java", value: "Java" },
+  { label: "Python", value: "Python" },
+  { label: "PHP", value: "PHP" },
+  { label: "Angular", value: "Angular" },
+  { label: "Swift", value: "Swift" },
+  { label: "C++, C or C#", value: "C++, C or C#" },
+  { label: "Rust", value: "Rust" },
+  { label: "Scala", value: "Scala" },
+  { label: "MongoDB", value: "MongoDB" },
+  { label: "SQL", value: "SQL" },
+  { label: "Other", value: "Other" },
+];
+
 const optionsPosition = [
   { label: "Full-stack Developer", value: "Full-stack Developer" },
   { label: "Front-end Developer", value: "Front-end Developer" },
@@ -44,18 +65,23 @@ const optionsExperience = [
 ];
 
 const CandidateProfilePage = () => {
+  const [username, setUserName] = useState("");
   const [remote, setSelectedRemote] = useState([]);
   const [salary, setSelectedSalary] = useState([]);
   const [contract, setSelectedContract] = useState([]);
+  const [technologies, setSelectedTechnologies] = useState([]);
   const [position, setSelectedPosition] = useState([]);
   const [experience, setSelectedExperience] = useState([]);
   const [cv, setCV] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const remoteCopy = remote.map((x) => x.value);
     const salaryCopy = salary.map((x) => x.value);
     const contractCopy = contract.map((x) => x.value);
+    const technologiesCopy = technologies.map((x) => x.value);
     const positionCopy = position.map((x) => x.value);
     const experienceCopy = experience.map((x) => x.value);
     //const requestBody = { remoteCopy, salaryCopy, contractCopy, positionCopy, experienceCopy };
@@ -63,19 +89,24 @@ const CandidateProfilePage = () => {
     //console.log("array", requestBody)
     axios({
       method: "PATCH",
-      url: "/profile/create",
+      url: "/profile",
       baseURL: API_URL,
       data: {
+        username: username,
         remote: remoteCopy,
         salary: salaryCopy,
         contract: contractCopy,
+        technologies: technologiesCopy,
         position: positionCopy,
         experience: experienceCopy,
       },
       withCredentials: true,
     }).then((response) => {
       console.log(response);
+      let successMessageTwo = document.querySelector(".success-message-two");
+      successMessageTwo.innerHTML = "Profile updated";
     });
+
     // )
     //     // Reset the state
     //     setSelectedRemote("");
@@ -86,6 +117,7 @@ const CandidateProfilePage = () => {
     //   })
     // .catch((error) => console.log(error));
   };
+
   const handleCVUpload = (e) => {
     e.preventDefault();
     const fd = new FormData();
@@ -93,14 +125,14 @@ const CandidateProfilePage = () => {
     fd.append("cv", cv);
     axios({
       method: "PATCH",
-      url: "/profile/create",
+      url: "/profile",
       baseURL: API_URL,
       data: fd,
       withCredentials: true,
     })
       .then(function (response) {
         let successMessage = document.querySelector(".success-message");
-        successMessage.innerHTML = JSON.stringify(response.data);
+        successMessage.innerHTML = "CV uploaded";
       })
       .catch(function (error) {
         let successMessage = document.querySelector(".success-message");
@@ -118,6 +150,17 @@ const CandidateProfilePage = () => {
     // };
   };
 
+  const deleteProfile = (e) => {
+    axios({
+      method: "DELETE",
+      url: "/delete/:id",
+      baseURL: API_URL,
+    }).then((response) => {
+      console.log(response);
+      navigate("/");
+    });
+  };
+
   return (
     <div>
       <h2 className="section_text"> Edit your profile</h2>
@@ -129,24 +172,49 @@ const CandidateProfilePage = () => {
           <div className="form-group-one">
             <form onSubmit={handleCVUpload}>
               <label>
-                <img src={DownloadImage} alt="" width="60" />
-                <input
-                  type="file"
-                  name="cv"
-                  class="hidden"
-                  onChange={(e) => setCV(e.target.files[0])}
-                />
+                <div className="flexbox">
+                  <img
+                    src={DownloadImage}
+                    className="cloud"
+                    alt=""
+                    width="200"
+                  />
+                  <input
+                    type="file"
+                    name="cv"
+                    class="cloudinaryinput"
+                    onChange={(e) => setCV(e.target.files[0])}
+                  />
+                </div>
               </label>
               <div className="ulpoaded-file"></div>
               <button className="submit" type="submit">
                 Upload CV
               </button>
-              <h4>PDF or PNG accepted only</h4>
+              <p>PDF or PNG accepted only</p>
               <div className="error-message"></div>
+              <div className="success-message"></div>
             </form>
           </div>
 
           <form onSubmit={handleSubmit}>
+            <label>Username:</label>
+            {/* <input
+              type="text"
+              name="name"
+              value={username}
+              onChange={(item) => {
+                setUserName(item);
+              }}
+            /> */}
+            <input
+              value={username}
+              type="text"
+              class="usernameinput"
+              placeholder="e.g. John Doe"
+              onChange={(event) => setUserName(event.target.value)}
+            />
+
             <label>Remote option desired:</label>
             <MultiSelect
               options={optionsRemote}
@@ -171,6 +239,14 @@ const CandidateProfilePage = () => {
               labelledBy="Select"
             />
 
+            <label>Technologies used:</label>
+            <MultiSelect
+              options={optionsTechnologies}
+              value={technologies}
+              onChange={(item) => setSelectedTechnologies(item)}
+              labelledBy="Select"
+            />
+
             <label>Position searched:</label>
             <MultiSelect
               options={optionsPosition}
@@ -186,15 +262,20 @@ const CandidateProfilePage = () => {
               onChange={(item) => setSelectedExperience(item)}
               labelledBy="Select"
             />
+
             <button className="submit" type="submit">
               Edit Profile
             </button>
+            <div className="success-message-two"></div>
           </form>
 
-          <p className="delete">
+          <button
+            onclick={deleteProfile((e) => e.target.value)}
+            className="delete-account"
+          >
             <img src={DeleteImage} alt="" width="16px" />
-            Delete my account
-          </p>
+            &nbsp;Delete my account
+          </button>
         </div>
       </div>
     </div>

@@ -47,10 +47,8 @@ function HomePage() {
       <div className="section-three">
         <div className="textpartthree">
           <h2>
-            <div className="search">
-              Search for your perfect job or the next step on your career
-              journey.
-            </div>
+            Search for your <div className="searchcircle">perfect</div> job or
+            the next step on your career journey.
           </h2>
           <p id="black-text">
             Get access to a large database of developers ready to start their

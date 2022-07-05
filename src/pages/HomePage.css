@@ -214,9 +214,10 @@ h3 {
   background-size: 94.5%;
 }
 
-.search{
-  content: 'Search';
+.searchcircle:before{
+  content: 'perfect';
+  position: absolute;
   background-image: url('../assets/svg/circle-search.svg');
   background-repeat: no-repeat;
-
+  background-size: contain;
 }
