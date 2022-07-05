@@ -182,7 +182,7 @@ const CandidateProfilePage = () => {
               <button className="submit" type="submit">
                 Upload CV
               </button>
-              <p>PDF or PNG accepted only</p>
+              <p>JPG, JPEG or PNG accepted only</p>
               <div className="error-message"></div>
               <div className="success-message"></div>
             </form>
