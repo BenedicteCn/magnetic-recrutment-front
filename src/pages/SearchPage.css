@@ -10,9 +10,6 @@
   display: flex;
   justify-content: space-around;
 }
-.candidate-details-container {
-  margin-right: 8%;
-}
 .search-title {
   font: bold bold 1200 Manrope;
   font-size: 54px;
@@ -43,9 +40,12 @@
 }
 .filter-container {
   position: relative;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
 }
 .filter-container form {
   align-items: flex-start;
+  margin: 0;
 }
 
 h4 {
@@ -93,10 +93,11 @@ input[type='checkbox'] {
 
 .profile-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   gap: 2rem;
   padding: 1.5rem;
+  flex-wrap: wrap;
 }
 .searchimage {
   margin-bottom: 2%;
@@ -109,15 +110,4 @@ input[type='checkbox'] {
   font-size: 18px;
   width: 430px;
   margin: 10px auto 5px auto;
-}
-.v-line {
-  /* border-left: 1px solid #000; */
-  height: 90%;
-  left: 22%;
-  bottom: -0.005%;
-  position: absolute;
-  border: 0.4px solid #707070;
-}
-.h-line {
-  width: 100%;
 }

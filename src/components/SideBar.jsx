@@ -11,8 +11,9 @@ import { AuthContext } from '../context/auth.context';
 
 function SideBar() {
   const [searchProfile, setSearchProfile] = useState('');
+  //add token
   const { isLoggedIn, getToken } = useContext(AuthContext);
-
+  // set token to a variable
   const token = getToken();
   const [languagesUserInfo, setUserLanguagesInfo] = useState({
     languages: [],
@@ -24,6 +25,7 @@ function SideBar() {
     experiences: [],
   });
   //   const [displayProfile, setDisplayProfile] = useState([]);
+  //this atoms can be used throughout the application as pieces of state
   const [displayProfile, setDisplayProfile] = useAtom(displayProfileAtom);
   const [isLoading, setIsLoading] = useAtom(isLoadingAtom);
   const [query, setQuery] = useState({});
@@ -116,6 +118,7 @@ function SideBar() {
     console.log(query);
     const { data } = await axios.get(`http://localhost:5005/profile`, {
       params: query,
+      //protect root
       headers: {
         Authorization: `Bearer ${token}`,
       },
