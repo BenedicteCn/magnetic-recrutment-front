@@ -111,3 +111,14 @@ input[type='checkbox'] {
   width: 430px;
   margin: 10px auto 5px auto;
 }
+
+.perfectCircleImage {
+
+  background-image: url("../assets/svg/circle-perfect-02.svg");
+  background-repeat: no-repeat;
+}
+
+.candidate-details-container{
+
+  text-align: center;
+}

@@ -1,14 +1,13 @@
-import { useContext, useState } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import { API_URL } from '../utils/constants';
-import './Auth.css';
-import LoginImage from '../assets/login.png';
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import "./Auth.css";
+import LoginImage from "../assets/login.png";
+import makeRequest from "../utils/service";
 
 function LoginHRPage(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -21,10 +20,9 @@ function LoginHRPage(props) {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
 
-    axios({
-      url: '/hr/login',
-      baseURL: API_URL,
-      method: 'post',
+    makeRequest({
+      url: "/hr/login",
+      method: "post",
       data: {
         email,
         password,
@@ -36,11 +34,11 @@ function LoginHRPage(props) {
         storeToken(authToken);
         authenticateUser();
         // redirect home
-        navigate('/hr/search');
+        navigate("/hr/search");
       })
       .catch(function (error) {
-        let message = document.querySelector('.error-message');
-        message.innerHTML = 'Please connect with a recruiter profile';
+        let message = document.querySelector(".error-message");
+        message.innerHTML = "Please connect with a recruiter profile";
       });
   };
 
@@ -72,7 +70,7 @@ function LoginHRPage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p className="already">
         Don't have an account yet?
-        <Link to={'/hr/signup'}> Sign Up</Link>
+        <Link to={"/hr/signup"}> Sign Up</Link>
       </p>
     </div>
   );

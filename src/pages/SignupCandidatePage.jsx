@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './Auth.css';
-import CandidateImage from '../assets/candidate.png';
-import GithubImage from '../assets/svg/github.svg';
-import { API_URL } from '../utils/constants';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
+import CandidateImage from "../assets/candidate.png";
+import GithubImage from "../assets/svg/github.svg";
+import { API_URL } from "../utils/constants";
+import makeRequest from "../utils/service";
 
 function SignupCandidatePage(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -20,10 +20,9 @@ function SignupCandidatePage(props) {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    axios({
-      url: '/candidate/signup',
-      baseURL: API_URL,
-      method: 'post',
+    makeRequest({
+      url: "/candidate/signup",
+      method: "post",
       data: {
         email,
         password,
@@ -31,7 +30,7 @@ function SignupCandidatePage(props) {
       },
     })
       .then((response) => {
-        navigate('/candidate/login');
+        navigate("/candidate/login");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -74,13 +73,13 @@ function SignupCandidatePage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <a className="github" href={`${API_URL}/candidate/auth/github`}>
-        <img className="GithubImage" src={GithubImage} alt="" width="18px" />{' '}
+        <img className="GithubImage" src={GithubImage} alt="" width="18px" />{" "}
         Sign up with Github
       </a>
 
       <p className="already">
         Already have account?
-        <Link to={'/candidate/login'}> Login</Link>
+        <Link to={"/candidate/login"}> Login</Link>
       </p>
     </div>
   );

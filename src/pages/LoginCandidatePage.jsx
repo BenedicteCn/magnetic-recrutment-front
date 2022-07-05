@@ -1,15 +1,15 @@
-import { useContext, useState } from 'react';
-import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import { API_URL } from '../utils/constants';
-import './Auth.css';
-import LoginImage from '../assets/login.png';
-import GithubImage from '../assets/svg/github.svg';
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import "./Auth.css";
+import LoginImage from "../assets/login.png";
+import GithubImage from "../assets/svg/github.svg";
+import makeRequest from "../utils/service";
+import { API_URL } from "../utils/constants";
 
 function LoginCandidatePage(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -22,10 +22,9 @@ function LoginCandidatePage(props) {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
 
-    axios({
-      url: '/candidate/login',
-      baseURL: API_URL,
-      method: 'post',
+    makeRequest({
+      url: "/candidate/login",
+      method: "post",
       data: {
         email,
         password,
@@ -38,11 +37,11 @@ function LoginCandidatePage(props) {
         storeToken(authToken);
         authenticateUser();
         // redirect home
-        navigate('/profile/create');
+        navigate("/profile/create");
       })
       .catch(function (error) {
-        let message = document.querySelector('.error-message');
-        message.innerHTML = 'Please connect with a candidate profile';
+        let message = document.querySelector(".error-message");
+        message.innerHTML = "Please connect with a candidate profile";
       });
 
     // axios.interceptors.response.use(undefined, (error) => {
@@ -89,14 +88,14 @@ function LoginCandidatePage(props) {
       </form>
 
       <a className="github" href={`${API_URL}/candidate/auth/github`}>
-        <img className="GithubImage" src={GithubImage} alt="" width="18px" />{' '}
+        <img className="GithubImage" src={GithubImage} alt="" width="18px" />{" "}
         Login with Github
       </a>
       <div className="error-message"></div>
 
       <p className="already">
         Don't have an account yet?
-        <Link to={'/candidate/signup'}> Sign Up</Link>
+        <Link to={"/candidate/signup"}> Sign Up</Link>
       </p>
     </div>
   );

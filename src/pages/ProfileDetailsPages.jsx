@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import './ProfileDetailsPages.css';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import "./ProfileDetailsPages.css";
 // import SearchNameImage from '../assets/name-bg.jpg';
 
-import StarImage from '../assets/svg/star-empty.svg';
-import ContactImage from '../assets/svg/contact.svg';
-import LinkImage from '../assets/svg/link.svg';
+import StarImage from "../assets/svg/star-empty.svg";
+import ContactImage from "../assets/svg/contact.svg";
+import LinkImage from "../assets/svg/link.svg";
 const ProfileDetailsPages = () => {
   const [profileInfo, setProfileInfo] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
@@ -16,7 +16,7 @@ const ProfileDetailsPages = () => {
 
   useEffect(() => {
     let config = {
-      method: 'get',
+      method: "get",
       url: `http://localhost:5005/profile/${params.profileId}`,
     };
     // console.log('id', params.profileId);
@@ -25,7 +25,7 @@ const ProfileDetailsPages = () => {
         setProfileInfo(response.data);
       })
       .catch((error) => {
-        setErrorMessage('Could not get info');
+        setErrorMessage("Could not get info");
       });
   }, [params.profileId]);
 
@@ -38,7 +38,7 @@ const ProfileDetailsPages = () => {
     );
   }
 
-  console.log('profileifo new', profileInfo);
+  console.log("profileifo new", profileInfo);
   if (!Object.keys(profileInfo).length) {
     return <div>Loading</div>;
   }
@@ -67,7 +67,7 @@ const ProfileDetailsPages = () => {
                 <li key={repo._id} className="githuub-repo-list">
                   <img className="linkImage" src={LinkImage} alt="" />
                   <a className="repos-link" href={repo.url}>
-                    {repo.name.split('/')[1]}
+                    {repo.name.split("/")[1]}
                   </a>
                 </li>
               ))}
@@ -87,7 +87,7 @@ const ProfileDetailsPages = () => {
         )}
         <div className="profile-card">
           <h4 className="left-container-title">Remote</h4>
-          <p> {profileInfo[0].remote}</p>
+          <p className="left-container-text"> {profileInfo[0].remote}</p>
           <h4 className="left-container-title">Experience</h4>
           <p className="left-container-text">{profileInfo[0].experience}</p>
           <h4 className="left-container-title">Expected Salary</h4>
