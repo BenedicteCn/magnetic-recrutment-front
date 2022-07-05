@@ -2,7 +2,12 @@
 
 /* FORM CSS */
 
-.auth form {
+.auth {
+
+  text-align: center;
+}
+
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +23,7 @@ label {
   padding: 0.5em;
 }
 
-.auth input {
+input {
   width: 500px;
   height: 35px;
   background: #ffffff 0% 0% no-repeat padding-box;

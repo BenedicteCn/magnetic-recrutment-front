@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MultiSelect } from "react-multi-select-component";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
 import "./CandidateProfile.css";
 import DeleteImage from "../assets/svg/trash-bin.svg";
 import DownloadImage from "../assets/svg/download-svgrepo-com2.svg";
-import { API_URL } from "../utils/constants";
+import makeRequest from "../utils/service";
+import { AuthContext } from "../context/auth.context";
 
 const optionsRemote = [
   { value: "Full", label: "Full" },
@@ -74,6 +74,7 @@ const CandidateProfilePage = () => {
   const [experience, setSelectedExperience] = useState([]);
   const [cv, setCV] = useState("");
 
+  const { getToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -87,10 +88,11 @@ const CandidateProfilePage = () => {
     //const requestBody = { remoteCopy, salaryCopy, contractCopy, positionCopy, experienceCopy };
 
     //console.log("array", requestBody)
-    axios({
+    const token = getToken();
+    makeRequest({
+      token,
       method: "PATCH",
       url: "/profile",
-      baseURL: API_URL,
       data: {
         username: username,
         remote: remoteCopy,
@@ -100,7 +102,6 @@ const CandidateProfilePage = () => {
         position: positionCopy,
         experience: experienceCopy,
       },
-      withCredentials: true,
     }).then((response) => {
       console.log(response);
       let successMessageTwo = document.querySelector(".success-message-two");
@@ -123,12 +124,11 @@ const CandidateProfilePage = () => {
     const fd = new FormData();
     console.log(cv);
     fd.append("cv", cv);
-    axios({
+    makeRequest({
+      token: getToken(),
       method: "PATCH",
       url: "/profile",
-      baseURL: API_URL,
       data: fd,
-      withCredentials: true,
     })
       .then(function (response) {
         let successMessage = document.querySelector(".success-message");
@@ -138,23 +138,14 @@ const CandidateProfilePage = () => {
         let successMessage = document.querySelector(".success-message");
         successMessage.innerHTML = "Please upload a file";
       });
-
-    // const getFileUploaded = () => {
-    //   axios
-    //     .get(`${API_URL}/api/projects/${projectId}`)
-    //     .then((response) => {
-    //       const oneProject = response.data;
-    //       setProject(oneProject);
-    //     })
-    //     .catch((error) => console.log(error));
-    // };
   };
 
   const deleteProfile = (e) => {
-    axios({
+    const token = getToken();
+    makeRequest({
+      token,
       method: "DELETE",
       url: "/delete/:id",
-      baseURL: API_URL,
     }).then((response) => {
       console.log(response);
       navigate("/");
@@ -162,7 +153,7 @@ const CandidateProfilePage = () => {
   };
 
   return (
-    <div>
+    <div className="EditProfile">
       <h2 className="section_text"> Edit your profile</h2>
       <p className="description">
         Please tell us more about you and the job you are looking for!
@@ -182,7 +173,7 @@ const CandidateProfilePage = () => {
                   <input
                     type="file"
                     name="cv"
-                    class="cloudinaryinput"
+                    className="cloudinaryinput"
                     onChange={(e) => setCV(e.target.files[0])}
                   />
                 </div>
@@ -210,7 +201,7 @@ const CandidateProfilePage = () => {
             <input
               value={username}
               type="text"
-              class="usernameinput"
+              className="usernameinput"
               placeholder="e.g. John Doe"
               onChange={(event) => setUserName(event.target.value)}
             />
@@ -270,7 +261,7 @@ const CandidateProfilePage = () => {
           </form>
 
           <button
-            onclick={deleteProfile((e) => e.target.value)}
+            onClick={(e) => deleteProfile(e.target.value)}
             className="delete-account"
           >
             <img src={DeleteImage} alt="" width="16px" />
