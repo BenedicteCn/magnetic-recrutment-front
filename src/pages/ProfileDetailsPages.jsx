@@ -56,7 +56,8 @@ const ProfileDetailsPages = () => {
           </div>
           <div className="contact">
             <img className="contactImage" src={ContactImage} alt="" />
-            <p className="candidate-text"> Contact Candidate</p>
+            <p className="candidate-text"> Contact Candidate:</p>
+            {profileInfo.email}
           </div>
         </div>
         <h4 className="left-container-title">Github Projects</h4>
