@@ -145,7 +145,7 @@ const CandidateProfilePage = () => {
     makeRequest({
       token,
       method: "DELETE",
-      url: "/delete/:id",
+      url: "/profile",
     }).then((response) => {
       console.log(response);
       navigate("/");
