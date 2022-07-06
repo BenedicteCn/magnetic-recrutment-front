@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useAtom } from 'jotai';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useAtom } from "jotai";
 // import { useContext } from 'react';
 // import { SearchContext } from '../context/search.context';
-import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
-import { useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
+import { displayProfileAtom, isLoadingAtom } from "../state/searchAtom";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function SideBar() {
-  const [searchProfile, setSearchProfile] = useState('');
+  const [searchProfile, setSearchProfile] = useState("");
   //add token
   const { isLoggedIn, getToken } = useContext(AuthContext);
   // set token to a variable
@@ -56,21 +56,21 @@ function SideBar() {
     // Case 1 : The user checks the box
     // let query = {};
     if (checked) {
-      if (type === 'lang') {
+      if (type === "lang") {
         setUserLanguagesInfo({
           languages: [...languages, value],
         });
         query.lang = [...languages, value];
       }
 
-      if (type === 'cont') {
+      if (type === "cont") {
         setContractsUserInfo({
           contracts: [...contracts, value],
         });
         query.cont = [...contracts, value];
       }
 
-      if (type === 'expe') {
+      if (type === "expe") {
         setExperiencesUserInfo({
           experiences: [...experiences, value],
         });
@@ -82,7 +82,7 @@ function SideBar() {
 
     // Case 2  : The user unchecks the box
     else {
-      if (type === 'lang') {
+      if (type === "lang") {
         const languagesToKeep = languages.filter((event) => event !== value);
         setUserLanguagesInfo({
           languages: languagesToKeep,
@@ -90,7 +90,7 @@ function SideBar() {
         query.lang = languagesToKeep;
       }
 
-      if (type === 'cont') {
+      if (type === "cont") {
         const contractsToKeep = contracts.filter((event) => event !== value);
         setContractsUserInfo({
           contracts: contractsToKeep,
@@ -98,7 +98,7 @@ function SideBar() {
         query.cont = contractsToKeep;
       }
 
-      if (type === 'expe') {
+      if (type === "expe") {
         const experiencesToKeep = experiences.filter(
           (event) => event !== value
         );
@@ -147,7 +147,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="JavaScript"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -161,7 +161,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="HTML"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -175,7 +175,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="CSS"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -189,7 +189,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="ReactJS"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -203,7 +203,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="NodeJS"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -217,7 +217,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="MongoDB"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -231,7 +231,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="ExpressJS"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -245,7 +245,7 @@ function SideBar() {
               name="languages"
               id="languages"
               value="Python"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "lang")}
               className="filter-checkbox"
             />
             <span class="checkmark"></span>
@@ -265,7 +265,7 @@ function SideBar() {
               name="contracts"
               id="contracts"
               value="Internship"
-              onChange={(e) => handleChangeCheckbox(e, 'lang')}
+              onChange={(e) => handleChangeCheckbox(e, "cont")}
               className="filter-checkbox"
             />
             <label className="label" htmlFor="contracts">
@@ -278,7 +278,7 @@ function SideBar() {
               name="contracts"
               id="contracts"
               value="part-time"
-              onChange={(e) => handleChangeCheckbox(e, 'cont')}
+              onChange={(e) => handleChangeCheckbox(e, "cont")}
               className="filter-checkbox"
             />
             <label className="label" htmlFor="contracts">
@@ -291,7 +291,7 @@ function SideBar() {
               name="contracts"
               id="contracts"
               value="Full-time"
-              onChange={(e) => handleChangeCheckbox(e, 'cont')}
+              onChange={(e) => handleChangeCheckbox(e, "cont")}
               className="filter-checkbox"
             />
             <label className="label" htmlFor="contracts">
@@ -304,7 +304,7 @@ function SideBar() {
               name="contracts"
               id="contracts"
               value="Freelance"
-              onChange={(e) => handleChangeCheckbox(e, 'cont')}
+              onChange={(e) => handleChangeCheckbox(e, "cont")}
               className="filter-checkbox"
             />
             <label className="label" htmlFor="contracts">
@@ -324,7 +324,7 @@ function SideBar() {
                 name="experiences"
                 id="experiences"
                 value="< 2 years"
-                onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                onChange={(e) => handleChangeCheckbox(e, "expe")}
                 className="filter-checkbox"
               />
               <label className="label" htmlFor="experiences">
@@ -337,7 +337,7 @@ function SideBar() {
                 name="experiences"
                 id="experiences"
                 value="2-5 years"
-                onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                onChange={(e) => handleChangeCheckbox(e, "expe")}
                 className="filter-checkbox"
               />
               <label className="label" htmlFor="experiences">
@@ -350,7 +350,7 @@ function SideBar() {
                 name="experiences"
                 id="experiences"
                 value="5-10 years"
-                onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                onChange={(e) => handleChangeCheckbox(e, "expe")}
                 className="filter-checkbox"
               />
               <label className="label" htmlFor="experiences">
@@ -363,7 +363,7 @@ function SideBar() {
                 name="experiences"
                 id="experiences"
                 value="> 10 years"
-                onChange={(e) => handleChangeCheckbox(e, 'expe')}
+                onChange={(e) => handleChangeCheckbox(e, "expe")}
                 className="filter-checkbox"
               />
               <label className="label" htmlFor="experiences">

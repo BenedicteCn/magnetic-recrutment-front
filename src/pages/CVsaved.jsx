@@ -1,6 +1,5 @@
 import React from "react";
 import { useContext, useState, useEffect } from "react";
-import { FavoritesProfilesContext } from "../context/FavouriteProfiles.context";
 import makeRequest from "../utils/service";
 import { AuthContext } from "../context/auth.context";
 
@@ -9,14 +8,18 @@ const CVsaved = () => {
   const [profiles, setProfiles] = useState([]);
 
   const token = getToken();
-  useEffect(() => {
-    makeRequest({
+
+  const getFavourites = async () => {
+    const response = await makeRequest({
       token,
       method: "GET",
       url: "/favourites",
-    }).then((response) => {
-      setProfiles(response.data.profiles);
     });
+    setProfiles(response.data.profiles);
+  };
+
+  useEffect(() => {
+    getFavourites();
   }, []);
 
   console.log(profiles);

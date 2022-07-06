@@ -1,45 +1,44 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { AuthContext } from "./auth.context";
 import makeRequest from "../utils/service";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { AuthContext } from "./auth.context";
 
-const FavoritesProfilesContext = createContext();
+// make a new React context
+const FavouritesContext = createContext();
 
-const FavoritesProfilesContextWrapper = ({ children }) => {
-  const { isLoggedIn, user, setIsLoading } = useContext(AuthContext);
+const FavouritesContextWrapper = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
-  const getFavorites = async () => {
-    if (!isLoggedIn) {
-      setFavorites([]);
-      return;
-    }
+  console.log("favorites:", favorites);
+  const { getToken } = useContext(AuthContext);
 
-    setIsLoading(true);
+  const getFavorites = useCallback(() => {
+    const token = getToken();
+    makeRequest({
+      token,
+      method: "GET",
+      url: "/favourites",
+    })
+      .then((response) => setFavorites(response.data))
+      .catch((error) => console.log(error));
+  }, []);
 
-    const response = makeRequest({
-      method: "get",
-      url: `/favourites`,
-    });
-
-    console.log("favorites", response);
-
-    setFavorites(response.data.favorites);
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    getFavorites();
-  }, [isLoggedIn, user]);
+  useEffect(getFavorites, [getFavorites]);
 
   return (
-    <FavoritesProfilesContext.Provider
+    <FavouritesContext.Provider
       value={{
         favorites,
-        setFavorites,
+        getFavorites,
       }}
     >
       {children}
-    </FavoritesProfilesContext.Provider>
+    </FavouritesContext.Provider>
   );
 };
 
-export { FavoritesProfilesContext, FavoritesProfilesContextWrapper };
+export { FavouritesContext, FavouritesContextWrapper };

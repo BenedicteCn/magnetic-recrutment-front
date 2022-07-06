@@ -5,8 +5,8 @@ import "./ProfileDetailsPages.css";
 
 // import SearchNameImage from '../assets/name-bg.jpg';
 
-import StarImage from "../assets/svg/star-empty.svg";
-import ContactImage from "../assets/svg/contact.svg";
+// import StarImage from "../assets/svg/star-empty.svg";
+// import ContactImage from "../assets/svg/contact.svg";
 import LinkImage from "../assets/svg/link.svg";
 import ToggleFavourite from "../components/ToggleFavourite";
 
@@ -52,23 +52,18 @@ const ProfileDetailsPages = () => {
   return (
     <div className="profileInfo-container">
       <div className="github-container">
-        {/* <img className="searchNameImage" src={SearchNameImage} alt="" /> */}
         <div className="top-card-container">
           <h3 className="candidate-name">{profileInfo[0].username}</h3>
           {/* <pre>{JSON.stringify(profileInfo, null, 2)}</pre> */}
-          <div className="star">
-            <img className="starImage" src={StarImage} alt="" />
-
-            <p className="candidate-text">
-              <ToggleFavourite profileInfoId={profileInfo[0]._id} />
-            </p>
-          </div>
-          <div className="contact">
+          {/* <img className="starImage" src={StarImage} alt="" /> */}
+          <ToggleFavourite profileInfoId={profileInfo[0]._id} />
+          {/* <div className="contact">
             <img className="contactImage" src={ContactImage} alt="" />
             <p className="candidate-text"> Contact Candidate:</p>
             {profileInfo.email}
-          </div>
+          </div> */}
         </div>
+        {/* <img className="searchNameImage" src={SearchNameImage} alt="" /> */}
         <h4 className="left-container-title">Github Projects</h4>
         {profileInfo[0].githubProfile[0] && (
           <div>
