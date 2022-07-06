@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { createContext, useCallback, useEffect, useState } from 'react';
+import axios from "axios";
+import { createContext, useCallback, useEffect, useState } from "react";
 
 // make a new React context
 const SearchContext = createContext();
@@ -11,7 +11,8 @@ const SearchContextWrapper = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [displayProfile, setDisplayProfile] = useState([]);
   const [query, setQuery] = useState({});
-  const getRelevantUsers = useCallback((query) => {
+
+  const getRelevantUsers = useCallback(() => {
     setIsLoading(true);
     axios
       .get(`http://localhost:5005/profile`, {
@@ -22,9 +23,9 @@ const SearchContextWrapper = ({ children }) => {
         setDisplayProfile(reponse.data);
       });
     console.log(query);
-  }, []);
+  }, [query]);
 
-  useEffect(getRelevantUsers, [query]);
+  useEffect(getRelevantUsers, [getRelevantUsers]);
 
   return (
     <SearchContext.Provider
