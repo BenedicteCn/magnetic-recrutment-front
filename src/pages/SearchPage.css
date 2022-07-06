@@ -40,8 +40,10 @@
 }
 .filter-container {
   position: relative;
-  border-right: 1px solid black;
-  border-top: 1px solid black;
+  border-right: 1px solid #707070;
+  padding-right: 4rem;
+  /* border-top: 1px solid #707070;  */
+  height: 100%;
 }
 .filter-container form {
   align-items: flex-start;
@@ -53,6 +55,7 @@ h4 {
   color: #303df6;
   font-size: 16px;
   text-align: left;
+  font-weight: bold;
 }
 .filter-checkbox {
   font: normal normal medium Manrope;
@@ -113,12 +116,13 @@ input[type='checkbox'] {
 }
 
 .perfectCircleImage {
-
-  background-image: url("../assets/svg/circle-perfect-02.svg");
+  background-image: url('../assets/svg/circle-perfect-02.svg');
   background-repeat: no-repeat;
 }
 
-.candidate-details-container{
-
+.candidate-details-container {
   text-align: center;
+  /* border-top: 1px solid #707070;
+  margin-top: 10.5px;
+  margin-left: -10px; */
 }
