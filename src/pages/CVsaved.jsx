@@ -2,7 +2,6 @@ import React from 'react';
 import { useContext, useState, useEffect } from 'react';
 import makeRequest from '../utils/service';
 import { AuthContext } from '../context/auth.context';
-import { Link } from 'react-router-dom';
 import './CVsaved.css';
 import ProfileCard from '../components/ProfileCard';
 const CVsaved = () => {
