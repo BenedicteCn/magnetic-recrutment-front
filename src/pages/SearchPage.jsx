@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { displayProfileAtom } from '../state/searchAtom';
 import './SearchPage.css';
@@ -30,10 +29,6 @@ function SearchPage() {
             {displayProfile.map((profile) => (
               <ProfileCard profile={profile} />
             ))}
-            {/* <Link to={`/hr/search/${profile._id}`}>
-                  <h4>{profile.username}</h4>
-                  <img src={profile.cv} alt="profileImg" width="200px" />
-                </Link> */}
           </ul>
         </div>
       </div>

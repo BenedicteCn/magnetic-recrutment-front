@@ -15,6 +15,7 @@ import SearchPage from './pages/SearchPage';
 import ProfileDetailsPages from './pages/ProfileDetailsPages';
 import CVsaved from './pages/CVsaved';
 import Contact from './pages/Contact';
+import IsAnon from './components/IsAnon';
 function App() {
   return (
     <div className="App">
@@ -27,17 +28,45 @@ function App() {
           path="/profile/create"
           element={<CandidateProfilePage />}
         />
-        <Route exact path="/hr/login" element={<LoginHRPage />} />
-        <Route exact path="/candidate/login" element={<LoginCandidatePage />} />
+        <Route
+          exact
+          path="/hr/login"
+          element={
+            <IsAnon>
+              <LoginHRPage />
+            </IsAnon>
+          }
+        />
+        <Route
+          exact
+          path="/candidate/login"
+          element={
+            <IsAnon>
+              <LoginCandidatePage />
+            </IsAnon>
+          }
+        />
         <Route exact path="/hr/cvsaved" element={<CVsaved />} />
 
         <Route
           exact
           path="/candidate/signup"
-          element={<SignupCandidatePage />}
+          element={
+            <IsAnon>
+              <SignupCandidatePage />
+            </IsAnon>
+          }
         />
 
-        <Route exact path="/hr/signup" element={<SignupHRPage />} />
+        <Route
+          exact
+          path="/hr/signup"
+          element={
+            <IsAnon>
+              <SignupHRPage />
+            </IsAnon>
+          }
+        />
         <Route exact path="/hr/search" element={<SearchPage />} />
         <Route path="/hr/search/:profileId" element={<ProfileDetailsPages />} />
       </Routes>
