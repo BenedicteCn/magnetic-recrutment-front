@@ -5,6 +5,7 @@ import { displayProfileAtom } from '../state/searchAtom';
 import './SearchPage.css';
 import SideBar from '../components/SideBar';
 import ImageTwo from '../assets/01.png';
+import ProfileCard from '../components/ProfileCard';
 
 function SearchPage() {
   const [displayProfile] = useAtom(displayProfileAtom);
@@ -25,16 +26,15 @@ function SearchPage() {
           candidates, available right now
         </p>
         <div className="searchpage-container">
-          <div className="profile-container">
+          <ul className="profile-container">
             {displayProfile.map((profile) => (
-              <div key={profile._id} className="profilecard">
-                <Link to={`/hr/search/${profile._id}`}>
+              <ProfileCard profile={profile} />
+            ))}
+            {/* <Link to={`/hr/search/${profile._id}`}>
                   <h4>{profile.username}</h4>
                   <img src={profile.cv} alt="profileImg" width="200px" />
-                </Link>
-              </div>
-            ))}
-          </div>
+                </Link> */}
+          </ul>
         </div>
       </div>
     </div>
