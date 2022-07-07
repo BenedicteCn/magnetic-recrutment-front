@@ -70,9 +70,10 @@
   width: 18px;
 }
 .left-container-text {
-
   letter-spacing: 0px;
   color: #222222;
   font-family: Manrope;
   font-weight: 600;
+  list-style: none;
+  padding: 1rem;
 }
