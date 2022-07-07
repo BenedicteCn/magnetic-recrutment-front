@@ -113,6 +113,9 @@
   font-weight: 600;
   color: red;
   margin-top: 1.2em;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
 }
 
 .EditProfile {
