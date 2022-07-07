@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import './ProfileDetailsPages.css';
-import LinkImage from '../assets/svg/link.svg';
-import ToggleFavourite from '../components/ToggleFavourite';
-import { API_URL } from '../utils/constants';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import "./ProfileDetailsPages.css";
+import LinkImage from "../assets/svg/link.svg";
+import ToggleFavourite from "../components/ToggleFavourite";
+import { API_URL } from "../utils/constants";
 
 const ProfileDetailsPages = () => {
   const [profileInfo, setProfileInfo] = useState({});
@@ -15,7 +15,7 @@ const ProfileDetailsPages = () => {
 
   useEffect(() => {
     let config = {
-      method: 'get',
+      method: "get",
       url: `/profile/${params.profileId}`,
       baseURL: API_URL,
     };
@@ -25,7 +25,7 @@ const ProfileDetailsPages = () => {
         setProfileInfo(response.data);
       })
       .catch((error) => {
-        setErrorMessage('Could not get info');
+        setErrorMessage("Could not get info");
       });
   }, [params.profileId]);
 
@@ -59,7 +59,7 @@ const ProfileDetailsPages = () => {
                 <li key={repo._id} className="githuub-repo-list">
                   <img className="linkImage" src={LinkImage} alt="" />
                   <a className="repos-link" href={repo.url}>
-                    {repo.name.split('/')[1]}
+                    {repo.name.split("/")[1]}
                   </a>
                 </li>
               ))}
@@ -80,19 +80,19 @@ const ProfileDetailsPages = () => {
         <div className="profile-card">
           <h4 className="left-container-title">Remote</h4>
           <li className="left-container-text">
-            {' '}
-            {profileInfo[0].remote.toString().split('')}
+            {" "}
+            {profileInfo[0].remote.toString().split("")}
           </li>
           <h4 className="left-container-title">Experience</h4>
           <li className="left-container-text">{profileInfo[0].experience} </li>
           <h4 className="left-container-title">Expected Salary</h4>
           <li className="left-container-text">
-            {' '}
-            ${' '}
+            {" "}
+            ${" "}
             {profileInfo[0].salary
               .toString()
-              .replace(/\s|\[|\]/g, '')
-              .split('')}
+              .replace(/\s|\[|\]/g, "")
+              .split("")}
           </li>
         </div>
       </div>

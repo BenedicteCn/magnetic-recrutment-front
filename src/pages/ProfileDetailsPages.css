@@ -67,3 +67,16 @@
   list-style: none;
   padding: 1rem;
 }
+
+.cv-save-profilecard.hover {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+ }
+
+ .cv-save-profilecard:hover .hover {
+  opacity: 1;
+ }

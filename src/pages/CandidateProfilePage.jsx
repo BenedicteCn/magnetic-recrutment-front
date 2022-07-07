@@ -1,78 +1,78 @@
-import React, { useContext } from 'react';
-import { MultiSelect } from 'react-multi-select-component';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext } from "react";
+import { MultiSelect } from "react-multi-select-component";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import './CandidateProfile.css';
-import DeleteImage from '../assets/svg/trash-bin.svg';
-import DownloadImage from '../assets/svg/download-svgrepo-com2.svg';
-import makeRequest from '../utils/service';
-import { AuthContext } from '../context/auth.context';
+import "./CandidateProfile.css";
+import DeleteImage from "../assets/svg/trash-bin.svg";
+import DownloadImage from "../assets/svg/download-svgrepo-com2.svg";
+import makeRequest from "../utils/service";
+import { AuthContext } from "../context/auth.context";
 
 const optionsRemote = [
-  { value: 'Full', label: 'Full' },
-  { value: 'Hybride', label: 'Hybride' },
-  { value: 'On-site', label: 'On-site' },
+  { value: "Full", label: "Full" },
+  { value: "Hybride", label: "Hybride" },
+  { value: "On-site", label: "On-site" },
 ];
 
 const optionsSalary = [
-  { label: '< 30 000 €', value: '<30 000' },
-  { label: '30 000 - 40 000 €', value: '[30 000 - 40 000]' },
-  { label: '40 000 - 55 000 €', value: '[40 000 - 55 000]' },
-  { label: '55 000 - 70 000 €', value: '[55 000 - 70 000]' },
-  { label: '70 000 - 85 000 €', value: '[70 000 - 85 000]' },
-  { label: '> 85 000 €', value: '> 85 000' },
+  { label: "< 30 000 €", value: "<30 000" },
+  { label: "30 000 - 40 000 €", value: "[30 000 - 40 000]" },
+  { label: "40 000 - 55 000 €", value: "[40 000 - 55 000]" },
+  { label: "55 000 - 70 000 €", value: "[55 000 - 70 000]" },
+  { label: "70 000 - 85 000 €", value: "[70 000 - 85 000]" },
+  { label: "> 85 000 €", value: "> 85 000" },
 ];
 
 const optionsContract = [
-  { label: 'Internship', value: 'Internship' },
-  { label: 'Freelance', value: 'Freelance' },
-  { label: 'Full-time', value: 'Full-time' },
-  { label: 'Part-time', value: 'Part-time' },
+  { label: "Internship", value: "Internship" },
+  { label: "Freelance", value: "Freelance" },
+  { label: "Full-time", value: "Full-time" },
+  { label: "Part-time", value: "Part-time" },
 ];
 
 const optionsTechnologies = [
-  { label: 'HTML', value: 'HTML' },
-  { label: 'CSS', value: 'CSS' },
-  { label: 'Ruby', value: 'Ruby' },
-  { label: 'JavaScript', value: 'JavaScript' },
-  { label: 'React', value: 'React' },
-  { label: 'Java', value: 'Java' },
-  { label: 'Python', value: 'Python' },
-  { label: 'PHP', value: 'PHP' },
-  { label: 'Angular', value: 'Angular' },
-  { label: 'Swift', value: 'Swift' },
-  { label: 'C++, C or C#', value: 'C++, C or C#' },
-  { label: 'Rust', value: 'Rust' },
-  { label: 'Scala', value: 'Scala' },
-  { label: 'MongoDB', value: 'MongoDB' },
-  { label: 'SQL', value: 'SQL' },
-  { label: 'Other', value: 'Other' },
+  { label: "HTML", value: "HTML" },
+  { label: "CSS", value: "CSS" },
+  { label: "Ruby", value: "Ruby" },
+  { label: "JavaScript", value: "JavaScript" },
+  { label: "React", value: "React" },
+  { label: "Java", value: "Java" },
+  { label: "Python", value: "Python" },
+  { label: "PHP", value: "PHP" },
+  { label: "Angular", value: "Angular" },
+  { label: "Swift", value: "Swift" },
+  { label: "C++, C or C#", value: "C++, C or C#" },
+  { label: "Rust", value: "Rust" },
+  { label: "Scala", value: "Scala" },
+  { label: "MongoDB", value: "MongoDB" },
+  { label: "SQL", value: "SQL" },
+  { label: "Other", value: "Other" },
 ];
 
 const optionsPosition = [
-  { label: 'Full-stack Developer', value: 'Full-stack Developer' },
-  { label: 'Front-end Developer', value: 'Front-end Developer' },
-  { label: 'Back-end Developer', value: 'Back-end Developer' },
-  { label: 'Software Engineer', value: 'Software Engineer' },
+  { label: "Full-stack Developer", value: "Full-stack Developer" },
+  { label: "Front-end Developer", value: "Front-end Developer" },
+  { label: "Back-end Developer", value: "Back-end Developer" },
+  { label: "Software Engineer", value: "Software Engineer" },
 ];
 
 const optionsExperience = [
-  { label: '< 2 years', value: '< 2 years' },
-  { label: '2-5 years', value: '2-5 years' },
-  { label: '5-10 years', value: '5-10 years' },
-  { label: '> 10 years', value: '> 10 years' },
+  { label: "< 2 years", value: "< 2 years" },
+  { label: "2-5 years", value: "2-5 years" },
+  { label: "5-10 years", value: "5-10 years" },
+  { label: "> 10 years", value: "> 10 years" },
 ];
 
 const CandidateProfilePage = () => {
-  const [username, setUserName] = useState('');
+  const [username, setUserName] = useState("");
   const [remote, setSelectedRemote] = useState([]);
   const [salary, setSelectedSalary] = useState([]);
   const [contract, setSelectedContract] = useState([]);
   const [technologies, setSelectedTechnologies] = useState([]);
   const [position, setSelectedPosition] = useState([]);
   const [experience, setSelectedExperience] = useState([]);
-  const [cv, setCV] = useState('');
+  const [cv, setCV] = useState("");
 
   const { getToken } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -89,8 +89,8 @@ const CandidateProfilePage = () => {
     const token = getToken();
     makeRequest({
       token,
-      method: 'PATCH',
-      url: '/profile',
+      method: "PATCH",
+      url: "/profile",
       data: {
         username: username,
         remote: remoteCopy,
@@ -102,8 +102,8 @@ const CandidateProfilePage = () => {
       },
     }).then((response) => {
       console.log(response);
-      let successMessageTwo = document.querySelector('.success-message-two');
-      successMessageTwo.innerHTML = 'Profile updated';
+      let successMessageTwo = document.querySelector(".success-message-two");
+      successMessageTwo.innerHTML = "Profile updated";
     });
   };
 
@@ -111,20 +111,20 @@ const CandidateProfilePage = () => {
     e.preventDefault();
     const fd = new FormData();
     console.log(cv);
-    fd.append('cv', cv);
+    fd.append("cv", cv);
     makeRequest({
       token: getToken(),
-      method: 'PATCH',
-      url: '/profile',
+      method: "PATCH",
+      url: "/profile",
       data: fd,
     })
       .then(function (response) {
-        let successMessage = document.querySelector('.success-message');
-        successMessage.innerHTML = 'CV uploaded';
+        let successMessage = document.querySelector(".success-message");
+        successMessage.innerHTML = "CV uploaded";
       })
       .catch(function (error) {
-        let successMessage = document.querySelector('.success-message');
-        successMessage.innerHTML = 'Please upload a file';
+        let successMessage = document.querySelector(".success-message");
+        successMessage.innerHTML = "Please upload a file";
       });
   };
 
@@ -132,17 +132,17 @@ const CandidateProfilePage = () => {
     const token = getToken();
     makeRequest({
       token,
-      method: 'DELETE',
-      url: '/profile',
+      method: "DELETE",
+      url: "/profile",
     }).then((response) => {
       console.log(response);
-      navigate('/');
+      navigate("/");
     });
   };
 
   return (
     <div className="EditProfile">
-      <h2 className="section_text"> Update your profile</h2>
+      <h2 className="section_text"> Edit your profile</h2>
       <p className="description">
         Please tell us more about you and the job you are looking for!
       </p>
@@ -236,7 +236,7 @@ const CandidateProfilePage = () => {
             />
 
             <button className="submit" type="submit">
-              Update Profile
+              Save
             </button>
             <div className="success-message-two"></div>
           </form>
