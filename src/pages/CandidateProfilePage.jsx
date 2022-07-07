@@ -154,7 +154,7 @@ const CandidateProfilePage = () => {
 
   return (
     <div className="EditProfile">
-      <h2 className="section_text"> Edit your profile</h2>
+      <h2 className="section_text"> Update your profile</h2>
       <p className="description">
         Please tell us more about you and the job you are looking for!
       </p>
@@ -189,7 +189,7 @@ const CandidateProfilePage = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <label>Username:</label>
+            <label>Firstname and lastname: </label>
             {/* <input
               type="text"
               name="name"
@@ -255,7 +255,7 @@ const CandidateProfilePage = () => {
             />
 
             <button className="submit" type="submit">
-              Edit Profile
+              Update Profile
             </button>
             <div className="success-message-two"></div>
           </form>
