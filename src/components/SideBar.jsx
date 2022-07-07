@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAtom } from 'jotai';
-// import { useContext } from 'react';
-// import { SearchContext } from '../context/search.context';
-
+import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
+import { API_URL } from '../utils/constants';
 
 function SideBar() {
   const [searchProfile, setSearchProfile] = useState('');
