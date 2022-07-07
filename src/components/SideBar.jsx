@@ -5,9 +5,7 @@ import axios from 'axios';
 import { useAtom } from 'jotai';
 // import { useContext } from 'react';
 // import { SearchContext } from '../context/search.context';
-import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
-import { useContext } from 'react';
-import { AuthContext } from '../context/auth.context';
+
 
 function SideBar() {
   const [searchProfile, setSearchProfile] = useState('');
@@ -116,7 +114,8 @@ function SideBar() {
 
   const getRelevantUsers = async (query) => {
     console.log(query);
-    const { data } = await axios.get(`http://localhost:5005/profile`, {
+    const { data } = await axios.get(`/profile`, {
+      baseURL: API_URL,
       params: query,
       //protect root
       headers: {

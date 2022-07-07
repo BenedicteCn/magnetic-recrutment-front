@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useCallback, useEffect, useState } from "react";
+import { API_URL } from "../utils/constants";
 
 // make a new React context
 const SearchContext = createContext();
@@ -15,8 +16,9 @@ const SearchContextWrapper = ({ children }) => {
   const getRelevantUsers = useCallback(() => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:5005/profile`, {
+      .get(`/profile`, {
         params: query,
+        baseURL: API_URL,
       })
       .then((reponse) => {
         setIsLoading(false);
