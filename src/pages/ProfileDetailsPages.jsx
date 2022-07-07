@@ -9,6 +9,7 @@ import "./ProfileDetailsPages.css";
 // import ContactImage from "../assets/svg/contact.svg";
 import LinkImage from "../assets/svg/link.svg";
 import ToggleFavourite from "../components/ToggleFavourite";
+import { API_URL } from "../utils/constants";
 
 const ProfileDetailsPages = () => {
   const [profileInfo, setProfileInfo] = useState({});
@@ -23,7 +24,8 @@ const ProfileDetailsPages = () => {
   useEffect(() => {
     let config = {
       method: "get",
-      url: `http://localhost:5005/profile/${params.profileId}`,
+      url: `/profile/${params.profileId}`,
+      baseURL: API_URL,
     };
     // console.log('id', params.profileId);
     axios(config)
