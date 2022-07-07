@@ -1,0 +1,8 @@
+.cv-save-profile {
+  display: flex;
+  gap: 2rem;
+  justify-content: left;
+}
+.cv-save-profilecard {
+  list-style: none;
+}
