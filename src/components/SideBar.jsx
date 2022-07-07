@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAtom } from 'jotai';
@@ -9,10 +8,8 @@ import { AuthContext } from '../context/auth.context';
 import { API_URL } from '../utils/constants';
 
 function SideBar() {
-  const [searchProfile, setSearchProfile] = useState('');
-  //add token
   const { isLoggedIn, getToken } = useContext(AuthContext);
-  // set token to a variable
+  // Set token to a variable
   const token = getToken();
   const [languagesUserInfo, setUserLanguagesInfo] = useState({
     languages: [],
@@ -23,8 +20,7 @@ function SideBar() {
   const [experiencesUserInfo, setExperiencesUserInfo] = useState({
     experiences: [],
   });
-  //   const [displayProfile, setDisplayProfile] = useState([]);
-  //this atoms can be used throughout the application as pieces of state
+  //This atoms can be used throughout the application as pieces of state
   const [displayProfile, setDisplayProfile] = useAtom(displayProfileAtom);
   const [isLoading, setIsLoading] = useAtom(isLoadingAtom);
   const [query, setQuery] = useState({});
@@ -38,22 +34,14 @@ function SideBar() {
     fetchData();
   }, [query]);
 
-  const handleChange = (event) => {
-    setSearchProfile(event.target.value);
-  };
-  const handleClick = (event) => {
-    event.preventDefault();
-  };
   const handleChangeCheckbox = async (event, type) => {
     // Destructuring
     const { value, checked } = event.target;
     const { languages } = languagesUserInfo;
     const { contracts } = contractsUserInfo;
     const { experiences } = experiencesUserInfo;
-    // console.log(`${value} is ${checked}`);
 
     // Case 1 : The user checks the box
-    // let query = {};
     if (checked) {
       if (type === 'lang') {
         setUserLanguagesInfo({
@@ -118,7 +106,7 @@ function SideBar() {
     const { data } = await axios.get(`/profile`, {
       baseURL: API_URL,
       params: query,
-      //protect root
+      //Protect root
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -128,16 +116,7 @@ function SideBar() {
 
   return (
     <div className="filter-container">
-      {/* <input
-        type="text"
-        placeholder=""
-        value={searchProfile}
-        onChange={handleChange}
-        className="searchbar"
-      />
-      <button onClick={handleClick}>🔍</button> */}
-
-      {/* checkbox languages */}
+      {/* Checkbox languages */}
       <h4 className="language-checkbox">Languages</h4>
       <div className="language-checkbox-container">
         <form className="search-form">
@@ -353,7 +332,7 @@ function SideBar() {
           </div>
         </form>
       </div>
-      {/* checkbox contract type */}
+      {/* Checkbox contracts*/}
       <h4 className="contract-checkbox">Contracts</h4>
       <div className="contract-checkbox-container">
         <form>
@@ -412,7 +391,7 @@ function SideBar() {
         </form>
       </div>
       <div>
-        {/* checkbox experience */}
+        {/* Checkbox experiences */}
         <h4 className="experience-checkbox">Experiences</h4>
         <div className="experience-checkbox-container">
           <form>

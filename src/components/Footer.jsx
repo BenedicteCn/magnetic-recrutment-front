@@ -1,18 +1,17 @@
 import React from 'react';
-import './Footer.css'
-
-
+import './Footer.css';
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <>
+      <hr />
       <footer>
-        <hr/>
-        {/* in case we create About us page */}
-        {/* <p>About us</p> */}
         <p>&copy; Magnetic Recrutment 2022</p>
+        <Link to="/contact">
+          <p>About us</p>
+        </Link>
       </footer>
     </>
   );
 }
-
 export default Footer;

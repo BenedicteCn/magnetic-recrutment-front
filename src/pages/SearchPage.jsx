@@ -1,18 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAtom } from 'jotai';
-import { displayProfileAtom, isLoadingAtom } from '../state/searchAtom';
+import { displayProfileAtom } from '../state/searchAtom';
 import './SearchPage.css';
-
 import SideBar from '../components/SideBar';
-
 import ImageTwo from '../assets/01.png';
-// import PerfectCircleImage from "../assets/svg/circle-perfect-02.svg";
 
 function SearchPage() {
   const [displayProfile] = useAtom(displayProfileAtom);
-  // const [isLoading] = useAtom(isLoadingAtom);
-  console.log(' am searchpage info', displayProfile);
+
   return (
     <div className="big-search-container">
       <div className="search-details-container">
@@ -20,12 +16,7 @@ function SearchPage() {
       </div>
       <div className="candidate-details-container">
         <h2 className="search-title">Find your perfect candidates</h2>
-        {/* <img
-          className="perfectCircleImage"
-          src={PerfectCircleImage}
-          alt=""
-          width="250px"
-        /> */}
+
         <img className="searchimage" src={ImageTwo} alt="" width="250px" />
 
         <p className="recruiting-text">
@@ -33,7 +24,6 @@ function SearchPage() {
           Start the recruiting process with a selection of hundreds of
           candidates, available right now
         </p>
-        {/* <p>{isLoading ? 'loading' : 'not loading'}</p> */}
         <div className="searchpage-container">
           <div className="profile-container">
             {displayProfile.map((profile) => (

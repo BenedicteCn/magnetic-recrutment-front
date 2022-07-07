@@ -9,7 +9,7 @@
   text-align: center;
   font: normal normal 600 16px/22px Manrope;
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 1;
   width: 100px;
   height: 35px;
@@ -17,11 +17,10 @@
 }
 
 .delete {
-
   text-align: center;
   font: normal normal medium 16px/22px Manrope;
   letter-spacing: 0px;
-  color: #FD4747;
+  color: #fd4747;
   opacity: 1;
 }
 
@@ -30,20 +29,17 @@
 .rmsc .dropdown-heading {
   width: 400px;
   font: normal normal medium 16px/22px Manrope;
-
 }
 
 .rmsc .dropdown-heading .dropdown-heading-value {
-  display:flex;
-
+  display: flex;
 }
 
-.description{
+.description {
   text-align: center;
   margin: 1em;
-  margin-bottom: 2em
+  margin-bottom: 2em;
 }
-
 
 .section_text {
   display: inline-block;
@@ -56,17 +52,13 @@
   left: 0;
   background-image: url('../assets/svg/circle-edit.svg');
   background-repeat: no-repeat;
-  background-size: 100%
+  background-size: 100%;
 }
 
-/* .hidden {
-  display: none
-} */
-
-.form-group-one{
-  display:flex;
+.form-group-one {
+  display: flex;
   flex-direction: column;
-  background-color: lightgrey
+  background-color: lightgrey;
 }
 
 /* IMAGE */
@@ -81,12 +73,11 @@
 /* TEXT */
 
 .success-message-two {
-
   color: grey;
 }
 
 #file-upload-button {
-  color:white
+  color: white;
 }
 
 .flexbox {
@@ -101,11 +92,11 @@
 }
 
 .usernameinput {
-  border-radius:0.4em;
+  border-radius: 0.4em;
   font-family: Manrope;
   font-size: 16px;
   width: 400px;
-  text-align: center
+  text-align: center;
 }
 
 .delete-account {
@@ -119,6 +110,5 @@
 }
 
 .EditProfile {
-
   text-align: center;
 }

@@ -2,11 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './ProfileDetailsPages.css';
-
-// import SearchNameImage from '../assets/name-bg.jpg';
-
-// import StarImage from "../assets/svg/star-empty.svg";
-// import ContactImage from "../assets/svg/contact.svg";
 import LinkImage from '../assets/svg/link.svg';
 import ToggleFavourite from '../components/ToggleFavourite';
 import { API_URL } from '../utils/constants';
@@ -15,11 +10,8 @@ const ProfileDetailsPages = () => {
   const [profileInfo, setProfileInfo] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
 
-  // We want to get the id from the URL parameters
+  // Get the id from the URL parameters
   const params = useParams();
-
-  // console.log("id", profileInfo[0]._id);
-  // let profileInfoId = profileInfo[0]._id;
 
   useEffect(() => {
     let config = {
@@ -27,7 +19,7 @@ const ProfileDetailsPages = () => {
       url: `/profile/${params.profileId}`,
       baseURL: API_URL,
     };
-    // console.log('id', params.profileId);
+
     axios(config)
       .then((response) => {
         setProfileInfo(response.data);
@@ -46,7 +38,6 @@ const ProfileDetailsPages = () => {
     );
   }
 
-  console.log('profileifo new', profileInfo);
   if (!Object.keys(profileInfo).length) {
     return <div>Loading</div>;
   }
@@ -56,16 +47,10 @@ const ProfileDetailsPages = () => {
       <div className="github-container">
         <div className="top-card-container">
           <h3 className="candidate-name">{profileInfo[0].username}</h3>
-          {/* <pre>{JSON.stringify(profileInfo, null, 2)}</pre> */}
-          {/* <img className="starImage" src={StarImage} alt="" /> */}
+
           <ToggleFavourite profileInfoId={profileInfo[0]._id} />
-          {/* <div className="contact">
-            <img className="contactImage" src={ContactImage} alt="" />
-            <p className="candidate-text"> Contact Candidate:</p>
-            {profileInfo.email}
-          </div> */}
         </div>
-        {/* <img className="searchNameImage" src={SearchNameImage} alt="" /> */}
+
         <h4 className="left-container-title">Github Projects</h4>
         {profileInfo[0].githubProfile[0] && (
           <div>

@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import makeRequest from "../utils/service";
-
-import "./Auth.css";
-import HRImage from "../assets/recruiter.png";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import makeRequest from '../utils/service';
+import './Auth.css';
+import HRImage from '../assets/recruiter.png';
 
 function SignupPage(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -20,8 +19,8 @@ function SignupPage(props) {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     makeRequest({
-      url: "/hr/signup",
-      method: "post",
+      url: '/hr/signup',
+      method: 'post',
       data: {
         email,
         password,
@@ -29,7 +28,7 @@ function SignupPage(props) {
       },
     })
       .then((response) => {
-        navigate("/hr/login");
+        navigate('/hr/login');
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -69,9 +68,9 @@ function SignupPage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p className="already">
-        {" "}
+        {' '}
         Already have account?
-        <Link to={"/hr/login"}> Login</Link>
+        <Link to={'/hr/login'}> Login</Link>
       </p>
     </div>
   );
