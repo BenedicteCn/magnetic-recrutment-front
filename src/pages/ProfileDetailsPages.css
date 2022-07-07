@@ -5,7 +5,7 @@
   list-style: none;
   margin-left: 0;
 }
-
+/* Candidate Profile details on the left side */
 .profileInfo-container {
   display: flex;
   justify-content: space-evenly;
@@ -20,11 +20,7 @@
 .github-container {
   text-align: left;
 }
-.searchNameImage {
-  position: absolute;
-  width: 514px;
-  height: 256px;
-}
+
 .top-card-container {
   position: relative;
 }
@@ -39,13 +35,8 @@
   color: #ffffff;
   font: bold bold 600 16px Manrope;
 }
-.star {
-  display: flex;
-}
-.contact {
-  display: flex;
-}
 
+/* candidate name card backgroud */
 .top-card-container {
   background-image: url('../assets/name-bg.jpg');
   background-repeat: no-repeat;
@@ -63,7 +54,6 @@
 .repos-link {
   color: inherit;
   margin-left: 10px;
-  /* text-decoration: none; */
 }
 
 .linkImage {

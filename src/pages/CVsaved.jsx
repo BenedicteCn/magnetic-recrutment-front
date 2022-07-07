@@ -23,8 +23,6 @@ const CVsaved = () => {
     getFavourites();
   }, []);
 
-  console.log(profiles);
-
   if (!profiles) return <div>Loading</div>;
   return (
     <div className="cv-save-profile">

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Manrope:wght@200&family=Open+Sans:wght@300;400&display=swap');
 
-
 .section-one {
   padding: 2em;
   padding-top: 4em;
@@ -11,8 +10,6 @@
   background-image: url('../assets/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  /* background: rgb(48,61,246);
-  background: linear-gradient(54deg, rgba(48,61,246,1) 0%, rgba(9,9,121,1) 45%, rgba(159,205,214,1) 100%); */
 }
 
 .section-two {
@@ -24,7 +21,6 @@
 }
 
 .section-three {
-
   padding-top: 3em;
   padding-bottom: 15em;
   background-image: url('../assets/02.png');
@@ -58,12 +54,9 @@
   border: none;
   margin: 0.5em;
   padding: 0.8em;
-
-
 }
 
 #hrbutton:hover {
-
   background-color: transparent;
   border: 1px solid;
   cursor: pointer;
@@ -74,7 +67,6 @@
   border: 1px solid #222222;
   color: #222222;
   cursor: pointer;
-
 }
 
 #candidatebuttonwhite {
@@ -102,7 +94,6 @@
 }
 
 #hrbuttonwhite:hover {
-
   background-color: transparent;
   border: 1px solid white;
   color: white;
@@ -116,9 +107,7 @@
   cursor: pointer;
 }
 
-
 .buttons-section-one {
-
   display: flex;
 }
 
@@ -130,7 +119,6 @@ h1 {
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
-
 }
 
 h2 {
@@ -143,9 +131,7 @@ h2 {
 }
 
 h3 {
-
   font: normal normal 600 21px Manrope;
-
 }
 
 /* TEXT */
@@ -176,7 +162,6 @@ h3 {
 }
 
 .textpartthree {
-
   max-width: 40em;
   text-align: center;
 }
@@ -189,10 +174,10 @@ h3 {
 }
 
 .ImageTwo {
-  width: 425px
+  width: 425px;
 }
 
-.maintitle{
+.maintitle {
   position: relative;
 }
 
@@ -202,12 +187,10 @@ h3 {
   left: 0;
   background-image: url('../assets/svg/circle-perfect.svg');
   background-repeat: no-repeat;
-  background-size: 104%
+  background-size: 104%;
 }
 
-
 .introduction::before {
-
   content: 'Introduction';
   position: absolute;
   background-image: url('../assets/svg/circle-introduction.svg');
@@ -215,14 +198,7 @@ h3 {
   background-size: 94.5%;
 }
 
-
-/* background-size: inherit;
-background-size: initial;
-background-size: revert;
-background-size: unset;
- */
-
-.searchcircle:before{
+.searchcircle:before {
   content: 'perfect';
   position: absolute;
   background-image: url('../assets/svg/circle-search.svg');

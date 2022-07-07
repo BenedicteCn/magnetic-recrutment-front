@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-/* h2 {
-  font: normal normal 600 Manrope;
-  font-size: 50px;
-  letter-spacing: 0px;
-  color: #222222;
-  opacity: 1;
-} */
+/* checkbox filter */
 .big-search-container {
   display: flex;
   justify-content: space-around;
+}
+.label {
+  text-align: left;
+  font: normal normal 600 Manrope;
+  letter-spacing: 1px;
+  color: #222222;
+
+  font-size: 14px;
+}
+input[type='checkbox'] {
+  border: 1px solid #303df6;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
 }
 .search-title {
   font: bold bold 1200 Manrope;
@@ -19,20 +28,11 @@
   letter-spacing: 3.5px;
   margin-bottom: 5%;
 }
-.perfectCircleImage {
-  content: 'perfect';
-  position: absolute;
-  top: 9%;
-  left: 49%;
-  background-repeat: no-repeat;
-}
-
+/* title */
 .searchpage-container {
   display: flex;
 }
 .search-details-container {
-  /* display: flex;
-  justify-content: space-around; */
   font: normal normal medium Manrope;
   color: #222222;
   opacity: 1;
@@ -42,7 +42,6 @@
   position: relative;
   border-right: 1px solid #707070;
   padding-right: 4rem;
-  /* border-top: 1px solid #707070;  */
   height: 100%;
 }
 .filter-container form {
@@ -71,29 +70,6 @@ h4 {
   font-size: 14px;
 }
 
-/* .label {
-      font: normal normal medium Manrope;
-  color: black;
-  text-align: left;
-  font-size: 14px;
-} */
-.label {
-  text-align: left;
-  font: normal normal 600 Manrope;
-  letter-spacing: 1px;
-  color: #222222;
-
-  /* padding: 0.5em; */
-  font-size: 14px;
-}
-input[type='checkbox'] {
-  border: 1px solid #303df6;
-  border-radius: 5px;
-  width: 20px;
-  height: 20px;
-  margin-top: 8px;
-}
-
 .profile-container {
   display: flex;
   justify-content: space-around;
@@ -115,14 +91,6 @@ input[type='checkbox'] {
   margin: 10px auto 5px auto;
 }
 
-.perfectCircleImage {
-  background-image: url('../assets/svg/circle-perfect-02.svg');
-  background-repeat: no-repeat;
-}
-
 .candidate-details-container {
   text-align: center;
-  /* border-top: 1px solid #707070;
-  margin-top: 10.5px;
-  margin-left: -10px; */
 }

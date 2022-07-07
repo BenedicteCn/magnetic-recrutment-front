@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react"; // <== IMPORT
-import { AuthContext } from "../context/auth.context"; // <== IMPORT
-import Logo from "../assets/svg/logo.svg";
-import "./Navbar.css";
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
+import Logo from '../assets/svg/logo.svg';
+import './Navbar.css';
 
 const Navbar = () => {
-  const { isLoggedIn, user, logout } = useContext(AuthContext); // <== ADD
+  const { isLoggedIn, user, logout } = useContext(AuthContext);
 
   return (
     <div className="navbar">
@@ -13,7 +13,7 @@ const Navbar = () => {
         <img className="logo" src={Logo} alt="" width="250px" />
       </Link>
 
-      {isLoggedIn && user.role === "HR" && (
+      {isLoggedIn && user.role === 'HR' && (
         <div className="nav-hr">
           <span>Hi, {user.username}</span>
           <Link to="/hr/search">
@@ -28,7 +28,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {isLoggedIn && user.role === "Candidate" && (
+      {isLoggedIn && user.role === 'Candidate' && (
         <div className="nav-candidate">
           <span>Hi, {user.username}</span>
           <Link to="/profile/create">
@@ -43,12 +43,12 @@ const Navbar = () => {
       {!isLoggedIn && (
         <div className="notloggedin">
           <Link to="/candidate/login">
-            {" "}
-            <button id="iamacandidate">I am a candidate</button>{" "}
+            {' '}
+            <button id="iamacandidate">I am a candidate</button>{' '}
           </Link>
           <Link to="/hr/login">
-            {" "}
-            <button id="iamarecruiter">I am a recruiter</button>{" "}
+            {' '}
+            <button id="iamarecruiter">I am a recruiter</button>{' '}
           </Link>
         </div>
       )}

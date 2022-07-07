@@ -1,5 +1,4 @@
 .toggle-button {
-
   font-family: Manrope;
   font-weight: 700;
   font-size: 16px;
@@ -8,13 +7,16 @@
   align-items: center;
   background-color: transparent;
   border: solid 0.1em white;
-
 }
 
 .toggle-button:hover {
   cursor: pointer;
   letter-spacing: 1px;
-background: rgb(48,61,246);
-background: linear-gradient(54deg, rgba(48,61,246,1) 0%, rgba(9,9,121,1) 45%, rgba(159,205,214,1) 100%);
-
+  background: rgb(48, 61, 246);
+  background: linear-gradient(
+    54deg,
+    rgba(48, 61, 246, 1) 0%,
+    rgba(9, 9, 121, 1) 45%,
+    rgba(159, 205, 214, 1) 100%
+  );
 }
